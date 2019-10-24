@@ -47,7 +47,7 @@ module.exports = (env, argv) => {
     output: {
       filename: "[hash].bundle.js",
       path: path.resolve(__dirname, "dist"),
-      publicPath: "/dist/"
+      publicPath: "/rubyconf2019/dist/"
     },
     module: {
       rules: [
