@@ -9,37 +9,10 @@ cd "$(pkg-dir)"
 
 set -x
 
-mkdir -p target/wasm32-unknown-emscripten/debug
-touch target/wasm32-unknown-emscripten/debug/playground.js
-touch target/wasm32-unknown-emscripten/debug/playground.wasm
-mkdir -p target/wasm32-unknown-emscripten/release
-touch target/wasm32-unknown-emscripten/release/playground.js
-touch target/wasm32-unknown-emscripten/release/playground.wasm
-
 # Yarn orchestration
 
 ## Lint package.json
 pjv
-
-# Rust sources
-
-## Format with rustfmt
-cargo fmt
-## Lint with Clippy
-cargo clippy --all-targets --all-features
-## Lint docs
-cargo doc --no-deps --all
-
-# Lint Ruby sources
-
-lint_ruby_sources() {
-  pushd "$@" >/dev/null
-  bundle install >/dev/null
-  bundle exec rubocop -a
-  popd >/dev/null
-}
-
-lint_ruby_sources .
 
 # Shell sources
 

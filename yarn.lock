@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@artichoke/logo@git://github.com/artichoke/logo#master":
+"@artichoke/logo@git://github.com/artichoke/logo.git":
   version "0.1.0"
-  resolved "git://github.com/artichoke/logo#3a4258be01381e77697194fa789d68e44d4b3b60"
+  resolved "git://github.com/artichoke/logo.git#3a4258be01381e77697194fa789d68e44d4b3b60"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.5.5":
   version "7.5.5"
@@ -3946,6 +3946,11 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
+highlight.js@^9.15.10:
+  version "9.15.10"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.15.10.tgz#7b18ed75c90348c045eef9ed08ca1319a2219ad2"
+  integrity sha512-RoV7OkQm0T3os3Dd2VHLNMoaoDVx77Wygln3n9l5YV172XonWG6rgQD3XnF/BuFFZw9A0TJgmMSO8FEWQgvcXw==
+
 hmac-drbg@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/hmac-drbg/-/hmac-drbg-1.0.1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1"
@@ -7094,6 +7099,21 @@ reusify@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/reusify/-/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
   integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
+
+reveal.js@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/reveal.js/-/reveal.js-3.8.0.tgz#9a2818e366d46237f0e64c00f50a05f2340cd50f"
+  integrity sha512-MQ+UBXIIL9IyBXhkLZWb/AG5h5/BedmnHXHIEavMBawNLVfAayvTrwNlDjGn4tf/CQ2CTJR8jSyIdu4RpfoLpg==
+
+reveal_external@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/reveal_external/-/reveal_external-1.3.0.tgz#a0b574308a0ff30ce5ab7c9e60637d6ce292c6c8"
+  integrity sha512-55RWavFwNjTYYlLkxVH4+P4VngoaN2qvoW69p1aHvS7Az47oehRlb2zetuUeYsAaiNFgjwWw07EODRxGgKXkYA==
+
+reveald3@^1.5.5:
+  version "1.5.5"
+  resolved "https://registry.yarnpkg.com/reveald3/-/reveald3-1.5.5.tgz#8619ae1903d029bb0b270c0ed985125edfe826bc"
+  integrity sha512-gp4ufWJg9Tf9f2rbA8EwEJc3dTlEtp8qqiZav4+ACARw+CT92SmAty8rCMHCld6KyPh1YZTLw0UtPt13sLVVxw==
 
 rgb-regex@^1.0.1:
   version "1.0.1"

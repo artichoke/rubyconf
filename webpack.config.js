@@ -4,6 +4,7 @@ const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const webpack = require("webpack");
 
 const plugins = [
   new MiniCssExtractPlugin({
@@ -12,7 +13,7 @@ const plugins = [
   }),
   new HtmlWebPackPlugin({
     template: "index.html",
-    filename: "index.html",
+    filename: path.resolve(__dirname, "index.html"),
     minify: {
       collapseWhitespace: true,
       minifyCSS: true,
@@ -21,7 +22,11 @@ const plugins = [
       useShortDoctype: true
     }
   }),
-  new HtmlWebpackInlineSourcePlugin()
+  new HtmlWebpackInlineSourcePlugin(),
+  new webpack.ProvidePlugin({
+    Reveal: "reveal.js",
+    hljs: "highlight.js/lib/highlight"
+  })
 ];
 
 module.exports = (env, argv) => {
@@ -35,17 +40,13 @@ module.exports = (env, argv) => {
     context: path.resolve(__dirname, "src"),
     resolve: {
       alias: {
-        rust: path.resolve(
-          __dirname,
-          `target/wasm32-unknown-emscripten/${target}`
-        ),
-        ruby: path.resolve(__dirname, "examples")
+        slides: path.resolve(__dirname, "slides")
       }
     },
-    entry: path.resolve(__dirname, "src/main.js"),
+    entry: path.resolve(__dirname, "src/index.js"),
     output: {
-      filename: "[hash].bundle.js",
-      path: path.resolve(__dirname, "target/dist"),
+      filename: "index.bundle.js",
+      path: path.resolve(__dirname, "dist"),
       publicPath: "/"
     },
     module: {
@@ -69,45 +70,26 @@ module.exports = (env, argv) => {
           use: [cssLoader, "css-loader"]
         },
         {
-          test: /(logo|playground)\.png$/,
-          use: [
-            {
-              loader: "file-loader",
-              options: {
-                name: "[name].[ext]"
-              }
-            },
-            {
-              loader: "image-webpack-loader"
-            }
-          ]
-        },
-        {
           test: /\.(jpe?g|png|gif)$/,
-          exclude: /(logo|playground)\.png$/,
           use: ["url-loader", "image-webpack-loader"]
         },
         {
-          test: /@artichoke\/logo\/logo\.svg/,
+          test: /\.svg/,
           use: [
             {
               loader: "file-loader",
               options: {
                 name: "[name].[ext]"
               }
-            },
-            {
-              loader: "svgo-loader"
             }
           ]
         },
         {
-          test: /\.svg$/,
-          exclude: /@artichoke\/logo\/logo\.svg/,
-          use: ["svg-url-loader", "svgo-loader"]
+          test: /\.rb$/,
+          use: ["raw-loader"]
         },
         {
-          test: /\.rb$/,
+          test: /\.md$/,
           use: ["raw-loader"]
         },
         {
@@ -118,6 +100,18 @@ module.exports = (env, argv) => {
               loader: "file-loader",
               options: {
                 name: "[name].[ext]"
+              }
+            }
+          ]
+        },
+        {
+          test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+          use: [
+            {
+              loader: "file-loader",
+              options: {
+                name: "[name].[ext]",
+                outputPath: "fonts/"
               }
             }
           ]

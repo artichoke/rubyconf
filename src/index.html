@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Artichoke is a Ruby Made with Rust 💎🦀</title>
+
+    <style>
+      button {
+        display: inline-block;
+        border: none;
+        padding: 1rem 2rem;
+        margin: 0;
+        text-decoration: none;
+        background: #0069ed;
+        color: #ffffff;
+        font-family: sans-serif;
+        font-size: 1rem;
+        cursor: pointer;
+        text-align: center;
+        transition: background 250ms ease-in-out, transform 150ms ease;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+
+      button:hover,
+      button:focus {
+        background: #0053ba;
+      }
+
+      button:focus {
+        outline: 1px solid #fff;
+        outline-offset: -4px;
+      }
+
+      button:active {
+        transform: scale(0.99);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/title.md").default %> </textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/section-what-is-ruby.md").default %> </textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/ruby-is-syntax.md").default %> </textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/ruby-is-core.md").default %> </textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/ruby-is-stdlib.md").default %> </textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/ruby-is-behavior.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/ruby-is-c-api.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/artichoke-is-ruby.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/section-where-can-we-go.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/where-single-binary.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/where-opt-stdlib.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/where-fearless-concurrency.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/where-opt-parallelism.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/where-polymorphic-core.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/where-performance.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/section-why-rust.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/rust-ffi.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/rust-deps.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/rust-wasm.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/demo-wasm.md").default %></textarea
+          >
+        </section>
+        <section>
+          <div
+            class="fig-container"
+            style="overflow:hidden;"
+            data-file="https://artichoke.run"
+            data-style="height: 960px; width: 960px; margin-top: -64px;"
+          ></div>
+        </section>
+      </div>
+    </div>
+
+    <style type="text/css">
+      /* 1. Style header/footer <div> so they are positioned as desired. */
+      .header {
+        padding: 5px;
+        display: flex;
+        flex-direction: row;
+        align-content: space-between;
+      }
+      .header-tweet {
+        align-self: flex-start;
+        width: 50%;
+      }
+      .header-logo {
+        margin-left: auto;
+        padding: 5px;
+        visibility: hidden;
+      }
+      .footer-logo {
+        position: absolute;
+        bottom: 0%;
+        left: 0%;
+      }
+      .header img {
+        max-width: 100% !important;
+        max-height: 100% !important;
+      }
+    </style>
+
+    <!-- 2. Create hidden header/footer <div> -->
+    <div id="hidden" style="display:none;">
+      <div id="header">
+        <div class="header">
+          <div class="header-tweet">
+            <a
+              href="https://twitter.com/intent/tweet?screen_name=artichokeruby&ref_src=twsrc%5Etfw"
+              class="twitter-mention-button"
+              data-size="large"
+              data-show-count="false"
+            >
+              Tweet to @artichokeruby
+            </a>
+            <script
+              async
+              src="https://platform.twitter.com/widgets.js"
+              charset="utf-8"
+            ></script>
+          </div>
+          <div></div>
+          <div class="header-logo"></div>
+        </div>
+        <div class="footer-logo">
+          <img src="https://artichoke.run/logo.svg" height="125" />
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      // 3. On Reveal.js ready event, copy header/footer <div> into each `.slide-background` <div>
+      const header = $("#header").html();
+      if (window.location.search.match(/print-pdf/gi)) {
+        Reveal.addEventListener("ready", function(event) {
+          $(".slide-background").append(header);
+        });
+      } else {
+        $("div.reveal").append(header);
+      }
+    </script>
+  </body>
+</html>
