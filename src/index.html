@@ -211,22 +211,5 @@
         </div>
       </div>
     </div>
-
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-      crossorigin="anonymous"
-    ></script>
-    <script type="text/javascript">
-      // 3. On Reveal.js ready event, copy header/footer <div> into each `.slide-background` <div>
-      const header = $("#header").html();
-      if (window.location.search.match(/print-pdf/gi)) {
-        Reveal.addEventListener("ready", function(event) {
-          $(".slide-background").append(header);
-        });
-      } else {
-        $("div.reveal").append(header);
-      }
-    </script>
   </body>
 </html>

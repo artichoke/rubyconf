@@ -45,9 +45,9 @@ module.exports = (env, argv) => {
     },
     entry: path.resolve(__dirname, "src/index.js"),
     output: {
-      filename: "index.bundle.js",
+      filename: "[hash].bundle.js",
       path: path.resolve(__dirname, "dist"),
-      publicPath: "/"
+      publicPath: "/dist/"
     },
     module: {
       rules: [

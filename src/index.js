@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 import Reveal from "reveal.js";
 import "reveald3/reveald3";
 import "reveal_external";
@@ -10,15 +12,12 @@ import "reveal.js/css/reveal.css";
 import "reveal.js/css/print/paper.css";
 import "reveal.js/css/theme/white.css";
 
-import hljs from "highlight.js/lib/highlight";
-import ruby from "highlight.js/lib/languages/ruby";
-import "highlight.js/styles/monokai-sublime.css";
-
 import "reveal.js/plugin/markdown/markdown";
 import "reveal.js/plugin/markdown/marked";
 import "reveal.js/plugin/notes/notes";
 
-hljs.registerLanguage("ruby", ruby);
+import hljs from "highlight.js";
+import "highlight.js/styles/monokai-sublime.css";
 
 document.addEventListener("DOMContentLoaded", () => {
   Reveal.initialize({
@@ -36,4 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // callback function needed for syntax highlithging to work
   hljs.initHighlightingOnLoad();
+
+  const header = $("#header").html();
+  $("div.reveal").append(header);
 });
