@@ -6,41 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-
     <title>Artichoke is a Ruby Made with Rust 💎🦀</title>
-
-    <style>
-      button {
-        display: inline-block;
-        border: none;
-        padding: 1rem 2rem;
-        margin: 0;
-        text-decoration: none;
-        background: #0069ed;
-        color: #ffffff;
-        font-family: sans-serif;
-        font-size: 1rem;
-        cursor: pointer;
-        text-align: center;
-        transition: background 250ms ease-in-out, transform 150ms ease;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-      }
-
-      button:hover,
-      button:focus {
-        background: #0053ba;
-      }
-
-      button:focus {
-        outline: 1px solid #fff;
-        outline-offset: -4px;
-      }
-
-      button:active {
-        transform: scale(0.99);
-      }
-    </style>
   </head>
   <body>
     <div class="reveal">
@@ -143,7 +109,107 @@
         </section>
         <section>
           <h2>Benchmarks</h2>
-          <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Micro benches are useless because they are too small for anyone to sit on</p>&mdash; Aaron Patterson (@tenderlove) <a href="https://twitter.com/tenderlove/status/1189265228497854464?ref_src=twsrc%5Etfw">October 29, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <blockquote class="twitter-tweet tw-align-center">
+            <p lang="en" dir="ltr">
+              Micro benches are useless because they are too small for anyone to
+              sit on
+            </p>
+            &mdash; Aaron Patterson (@tenderlove)
+            <a
+              href="https://twitter.com/tenderlove/status/1189265228497854464?ref_src=twsrc%5Etfw"
+              >October 29, 2019</a
+            >
+          </blockquote>
+          <script
+            async
+            src="https://platform.twitter.com/widgets.js"
+            charset="utf-8"
+          ></script>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            <%= require("slides/bench-ary-shift.md").default %></textarea
+          >
+        </section>
+        <section>
+          <h3><code>Array#shift</code></h3>
+          <div class="stat-container">
+            <div class="stat-box">
+<!--
+precise-time 30 /usr/local/var/rbenv/versions/2.6.3/bin/ruby ary-shift-bench.rb
+3504 3118 2994 2981 2999 3003 3009 3030 3543 3259 3365 3230 3207 3167 3233 3279 3413 3214 3112 3142 3094 3058 3113 3257 3539 3401 3192 3224 3137 3174
+3200 [2981-3543] ms
+3877 [3876-3877] MB
+-->
+              <div class="stat-box-type">
+                MRI
+              </div>
+              <div class="stat-box-number">
+                0.3
+              </div>
+              <div class="stat-box-units">
+                iterations / second
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-box">
+<!--
+precise-time 30 artichoke/target/release/artichoke ary-shift-bench.rb
+10 9 9 10 9 9 11 11 10 10 9 11 10 10 10 10 11 10 10 10 9 9 10 10 11 10 10 10 10 10
+10 [9-11] ms
+3 [3-3] MB
+-->
+              <div class="stat-box-type stat-box-win">
+                Artichoke
+              </div>
+              <div class="stat-box-number">
+                100
+              </div>
+              <div class="stat-box-units">
+                iterations / second
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3><code>Array#shift</code></h3>
+          <div class="stat-container">
+            <div class="stat-box">
+<!--
+precise-time 30 /usr/local/var/rbenv/versions/2.6.3/bin/ruby ary-shift-bench.rb
+3504 3118 2994 2981 2999 3003 3009 3030 3543 3259 3365 3230 3207 3167 3233 3279 3413 3214 3112 3142 3094 3058 3113 3257 3539 3401 3192 3224 3137 3174
+3200 [2981-3543] ms
+3877 [3876-3877] MB
+-->
+              <div class="stat-box-type">
+                MRI
+              </div>
+              <div class="stat-box-number">
+                3877
+              </div>
+              <div class="stat-box-units">
+                MB / iteration
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-box">
+<!--
+precise-time 30 artichoke/target/release/artichoke ary-shift-bench.rb
+10 9 9 10 9 9 11 11 10 10 9 11 10 10 10 10 11 10 10 10 9 9 10 10 11 10 10 10 10 10
+10 [9-11] ms
+3 [3-3] MB
+-->
+              <div class="stat-box-type stat-box-win">
+                Artichoke
+              </div>
+              <div class="stat-box-number">
+                3
+              </div>
+              <div class="stat-box-units">
+                MB / iteration
+              </div>
+            </div>
+          </div>
         </section>
         <section data-markdown>
           <textarea data-template>
@@ -160,36 +226,6 @@
         </section>
       </div>
     </div>
-
-    <style type="text/css">
-      /* 1. Style header/footer <div> so they are positioned as desired. */
-      .header {
-        padding: 5px;
-        display: flex;
-        flex-direction: row;
-        align-content: space-between;
-      }
-      .header-tweet {
-        align-self: flex-start;
-        width: 50%;
-      }
-      .header-logo {
-        margin-left: auto;
-        padding: 5px;
-        visibility: hidden;
-      }
-      .footer-logo {
-        position: absolute;
-        bottom: 0%;
-        left: 0%;
-      }
-      .header img {
-        max-width: 100% !important;
-        max-height: 100% !important;
-      }
-    </style>
-
-    <!-- 2. Create hidden header/footer <div> -->
     <div id="hidden" style="display:none;">
       <div id="header">
         <div class="header">

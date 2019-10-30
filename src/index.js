@@ -16,6 +16,8 @@ import "reveal.js/plugin/notes/notes";
 import hljs from "highlight.js";
 import "highlight.js/styles/monokai-sublime.css";
 
+import "./artichoke.css";
+
 document.addEventListener("DOMContentLoaded", () => {
   Reveal.initialize({
     width: 960,
