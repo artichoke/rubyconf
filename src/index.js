@@ -4,9 +4,6 @@ import Reveal from "reveal.js";
 import "reveald3/reveald3";
 import "reveal_external";
 
-import "@artichoke/logo/logo.svg";
-import "./logo-red.svg";
-
 import "reveal.js/css/reset.css";
 import "reveal.js/css/reveal.css";
 import "reveal.js/css/print/paper.css";

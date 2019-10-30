@@ -13,7 +13,6 @@ const plugins = [
   }),
   new HtmlWebPackPlugin({
     template: "index.html",
-    filename: path.resolve(__dirname, "index.html"),
     minify: {
       collapseWhitespace: true,
       minifyCSS: true,
@@ -32,9 +31,11 @@ const plugins = [
 module.exports = (env, argv) => {
   let target = "debug";
   let cssLoader = "style-loader";
+  let publicPath = "/";
   if (argv.mode === "production") {
     target = "release";
     cssLoader = MiniCssExtractPlugin.loader;
+    publicPath = "/rubyconf2019/dist/";
   }
   return {
     context: path.resolve(__dirname, "src"),
@@ -47,7 +48,7 @@ module.exports = (env, argv) => {
     output: {
       filename: "[hash].bundle.js",
       path: path.resolve(__dirname, "dist"),
-      publicPath: "/rubyconf2019/dist/"
+      publicPath
     },
     module: {
       rules: [

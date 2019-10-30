@@ -112,6 +112,7 @@
   "scripts": {
     "lint": "./scripts/lint.sh",
     "loc": "loc --exclude vendor",
+    "release": "webpack --mode production",
     "serve": "webpack-dev-server --mode development --open"
   },
   "dependencies": {
