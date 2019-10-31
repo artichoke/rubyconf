@@ -14,6 +14,7 @@ const plugins = [
   new HtmlWebPackPlugin({
     template: "index.html",
     filename: "index.html",
+    chunks: ["landing"],
     minify: {
       collapseWhitespace: true,
       minifyCSS: true,
@@ -25,6 +26,7 @@ const plugins = [
   new HtmlWebPackPlugin({
     template: "2019/index.html",
     filename: "2019/index.html",
+    chunks: ["presentation"],
     minify: {
       collapseWhitespace: true,
       minifyCSS: true,
@@ -56,9 +58,12 @@ module.exports = (env, argv) => {
         slides: path.resolve(__dirname, "slides")
       }
     },
-    entry: path.resolve(__dirname, "src/index.js"),
+    entry: {
+      landing: path.resolve(__dirname, "src/landing.js"),
+      presentation: path.resolve(__dirname, "src/presentation.js")
+    },
     output: {
-      filename: "[hash].bundle.js",
+      filename: "[name].[hash].bundle.js",
       path: path.resolve(__dirname, "dist"),
       publicPath
     },
