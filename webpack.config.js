@@ -35,7 +35,7 @@ module.exports = (env, argv) => {
   if (argv.mode === "production") {
     target = "release";
     cssLoader = MiniCssExtractPlugin.loader;
-    publicPath = "/rubyconf2019/dist/";
+    publicPath = "/rubyconf2019/";
   }
   return {
     context: path.resolve(__dirname, "src"),
