@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Artichoke is a Ruby Made with Rust 💎🦀</title><link href="/rubyconf2019/bb5aad03c5c6fdf0ae8b.css" rel="stylesheet"></head><body><div class="reveal"><div class="slides"><section data-markdown><textarea data-template>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Artichoke is a Ruby Made with Rust 💎🦀</title><link href="/rubyconf2019/c0f7284935d780c71235.css" rel="stylesheet"></head><body><div class="reveal"><div class="slides"><section data-markdown><textarea data-template>
 ## Artichoke is a Ruby Made with Rust
 
 💎🦀🚀
@@ -149,7 +149,7 @@ mNokogiriHtmlSax  = rb_define_module_under(mNokogiriHtml, "SAX");
 - Rust natively builds to Wasm 🕸
 - Ruby in the browser 🌐
 - Ruby in untrusted, sandboxed environments 🕵️‍♀️
-</textarea></section><section><h2>Benchmarks</h2><blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">Micro benches are useless because they are too small for anyone to sit on</p>&mdash; Aaron Patterson (@tenderlove) <a href="https://twitter.com/tenderlove/status/1189265228497854464?ref_src=twsrc%5Etfw">October 29, 2019</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></section><section data-markdown><textarea data-template>
+</textarea></section><section><h2>Benchmarks</h2><blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">Micro benches are useless because they are too small for anyone to sit on</p>&mdash; Aaron Patterson (@tenderlove) <a href="https://twitter.com/tenderlove/status/1189265228497854464?ref_src=twsrc%5Etfw">October 29, 2019</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><div style="display:flex;flex-direction:row"><div style="font-size:1em;margin:auto"><a href="https://rubybench.org/ruby/ruby/releases">RubyBench</a></div></div></section><section data-markdown><textarea data-template>
             ### `Array#shift`
 
 ```ruby
@@ -178,10 +178,31 @@ str = Array.new(10_000, 'abc').join(',')
 ```ruby
 raise unless $fixture.scan('http://').length == 3539
 raise unless $fixture.scan('https://').length == 1865
+raise unless $fixture.scan('表达式').length == 120
 raise unless $fixture.scan("\r\n").empty?
 ```
-</textarea></section><section><h3><code>String#scan</code></h3><div class="stat-container"><div class="stat-box"><div class="stat-box-type">MRI</div><div class="stat-box-number">9.6</div><div class="stat-box-units">iterations / second</div></div><div class="divider"></div><div class="stat-box"><div class="stat-box-type stat-box-win">Artichoke</div><div class="stat-box-number">17.2</div><div class="stat-box-units">iterations / second</div></div></div></section><section><h3><code>String#scan</code></h3><div class="stat-container"><div class="stat-box"><div class="stat-box-type stat-box-win">MRI</div><div class="stat-box-number">22</div><div class="stat-box-units">MB / iteration</div></div><div class="divider"></div><div class="stat-box"><div class="stat-box-type">Artichoke</div><div class="stat-box-number">30</div><div class="stat-box-units">MB / iteration</div></div></div></section><section data-markdown><textarea data-template>
+</textarea></section><section><h3><code>String#scan</code></h3><div class="stat-container"><div class="stat-box"><div class="stat-box-type">MRI</div><div class="stat-box-number">9.4</div><div class="stat-box-units">iterations / second</div></div><div class="divider"></div><div class="stat-box"><div class="stat-box-type stat-box-win">Artichoke</div><div class="stat-box-number">15.0</div><div class="stat-box-units">iterations / second</div></div></div></section><section><h3><code>String#scan</code></h3><div class="stat-container"><div class="stat-box"><div class="stat-box-type stat-box-win">MRI</div><div class="stat-box-number">23</div><div class="stat-box-units">MB / iteration</div></div><div class="divider"></div><div class="stat-box"><div class="stat-box-type">Artichoke</div><div class="stat-box-number">36</div><div class="stat-box-units">MB / iteration</div></div></div></section><section data-markdown><textarea data-template>
+            ### Sparse Array Allocation
+
+```ruby
+a = []
+a[1_000_000_000_000_000] = 'quadrillion'
+
+a.concat((0..1000).to_a)
+
+100.times do |i|
+  a.unshift(i)
+end
+
+b = a.reverse
+
+b[500_000, 500_000] = [Object.new, /Array/, 100.0]
+
+puts a.length # => 1000000000001102
+puts b.length # => 999999999501105
+```
+</textarea></section><section><h3>Sparse Array Allocation</h3><div class="stat-container"><div class="stat-box"><div class="stat-box-type">MRI</div><div class="stat-box-text">failed to allocate memory (<code>NoMemoryError</code>)</div></div><div class="divider"></div><div class="stat-box"><div class="stat-box-type stat-box-win">Artichoke</div><div class="stat-box-number">4</div><div class="stat-box-units">MB / iteration</div></div></div></section><section data-markdown><textarea data-template>
 ### Ruby in the Browser
 
 [Artichoke Ruby Wasm Playground](https://artichoke.run)
-</textarea></section><section><div class="fig-container" style="overflow:hidden" data-file="https://artichoke.run" data-style="height: 960px; width: 960px; margin-top: -64px;"></div></section></div></div><div id="hidden" style="display:none"><div id="header"><div class="header"><div class="header-tweet"><a href="https://twitter.com/intent/tweet?screen_name=artichokeruby&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-size="large" data-show-count="false">Tweet to @artichokeruby</a><script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div><div></div><div class="header-logo"></div></div><div class="footer-logo"><img src="/rubyconf2019/logo.svg" height="125"></div></div></div><script type="text/javascript" src="/rubyconf2019/bb5aad03c5c6fdf0ae8b.bundle.js"></script></body></html>
+</textarea></section><section><div class="fig-container" style="overflow:hidden" data-file="https://artichoke.run" data-style="height: 960px; width: 960px; margin-top: -64px;"></div></section></div></div><div id="hidden" style="display:none"><div id="header"><div class="header"><div class="header-tweet"><a href="https://twitter.com/intent/tweet?screen_name=artichokeruby&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-size="large" data-show-count="false">Tweet to @artichokeruby</a><script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div><div></div><div class="header-logo"></div></div><div class="footer-logo"><img src="/rubyconf2019/logo.svg" height="125"></div></div></div><script type="text/javascript" src="/rubyconf2019/c0f7284935d780c71235.bundle.js"></script></body></html>
