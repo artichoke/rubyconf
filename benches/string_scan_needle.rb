@@ -7,5 +7,6 @@ end
 
 raise 'mismatch' unless $fixture.scan('http://').length == 3539
 raise 'mismatch' unless $fixture.scan('https://').length == 1865
+raise 'mismatch' unless $fixture.scan('表达式').length == 120
 raise 'mismatch' unless $fixture.scan("\r\n").empty?
 # rubocop:enable Style/GlobalVars
