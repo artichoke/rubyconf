@@ -94,6 +94,10 @@ module.exports = (env, argv) => {
           use: ["raw-loader"]
         },
         {
+          test: /\.txt$/,
+          use: ["raw-loader"]
+        },
+        {
           test: /\.wasm$/,
           type: "javascript/auto",
           use: [

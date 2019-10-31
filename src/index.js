@@ -17,6 +17,7 @@ import hljs from "highlight.js";
 import "highlight.js/styles/monokai-sublime.css";
 
 import "./artichoke.css";
+import "./learnxinyminutes.txt";
 
 document.addEventListener("DOMContentLoaded", () => {
   Reveal.initialize({

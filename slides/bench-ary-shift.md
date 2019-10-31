@@ -1,7 +1,7 @@
 ### `Array#shift`
 
 ```ruby
-[10_000,1_000_000,100_000_000].each do |n|
+[10_000, 1_000_000, 100_000_000].each do |n|
   ary = Array.new(n, 0)
   ary.shift
 

@@ -135,11 +135,11 @@
           <h3><code>Array#shift</code></h3>
           <div class="stat-container">
             <div class="stat-box">
-<!--
-precise-time 30 /usr/local/var/rbenv/versions/2.6.3/bin/ruby ary-shift-bench.rb
-3504 3118 2994 2981 2999 3003 3009 3030 3543 3259 3365 3230 3207 3167 3233 3279 3413 3214 3112 3142 3094 3058 3113 3257 3539 3401 3192 3224 3137 3174
-3200 [2981-3543] ms
-3877 [3876-3877] MB
+              <!--
+precise-time 30 /usr/local/var/rbenv/versions/2.6.3/bin/ruby --disable-gems --disable-did_you_mean ary-shift-bench.rb
+2965 2881 2914 2908 2909 2910 2898 2885 2887 2896 2910 2972 2885 2947 2904 2937 2905 2906 2904 2945 2875 2880 2907 2882 2903 2868 2885 2894 2878 2886
+2904 [2868-2972] ms
+3109 [3109-3109] MB
 -->
               <div class="stat-box-type">
                 MRI
@@ -153,7 +153,7 @@ precise-time 30 /usr/local/var/rbenv/versions/2.6.3/bin/ruby ary-shift-bench.rb
             </div>
             <div class="divider"></div>
             <div class="stat-box">
-<!--
+              <!--
 precise-time 30 artichoke/target/release/artichoke ary-shift-bench.rb
 10 9 9 10 9 9 11 11 10 10 9 11 10 10 10 10 11 10 10 10 9 9 10 10 11 10 10 10 10 10
 10 [9-11] ms
@@ -175,17 +175,17 @@ precise-time 30 artichoke/target/release/artichoke ary-shift-bench.rb
           <h3><code>Array#shift</code></h3>
           <div class="stat-container">
             <div class="stat-box">
-<!--
-precise-time 30 /usr/local/var/rbenv/versions/2.6.3/bin/ruby ary-shift-bench.rb
-3504 3118 2994 2981 2999 3003 3009 3030 3543 3259 3365 3230 3207 3167 3233 3279 3413 3214 3112 3142 3094 3058 3113 3257 3539 3401 3192 3224 3137 3174
-3200 [2981-3543] ms
-3877 [3876-3877] MB
+              <!--
+precise-time 30 /usr/local/var/rbenv/versions/2.6.3/bin/ruby --disable-gems --disable-did_you_mean ary-shift-bench.rb
+2965 2881 2914 2908 2909 2910 2898 2885 2887 2896 2910 2972 2885 2947 2904 2937 2905 2906 2904 2945 2875 2880 2907 2882 2903 2868 2885 2894 2878 2886
+2904 [2868-2972] ms
+3109 [3109-3109] MB
 -->
               <div class="stat-box-type">
                 MRI
               </div>
               <div class="stat-box-number">
-                3877
+                3109
               </div>
               <div class="stat-box-units">
                 MB / iteration
@@ -193,7 +193,7 @@ precise-time 30 /usr/local/var/rbenv/versions/2.6.3/bin/ruby ary-shift-bench.rb
             </div>
             <div class="divider"></div>
             <div class="stat-box">
-<!--
+              <!--
 precise-time 30 artichoke/target/release/artichoke ary-shift-bench.rb
 10 9 9 10 9 9 11 11 10 10 9 11 10 10 10 10 11 10 10 10 9 9 10 10 11 10 10 10 10 10
 10 [9-11] ms
@@ -204,6 +204,185 @@ precise-time 30 artichoke/target/release/artichoke ary-shift-bench.rb
               </div>
               <div class="stat-box-number">
                 3
+              </div>
+              <div class="stat-box-units">
+                MB / iteration
+              </div>
+            </div>
+          </div>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            <%= require("slides/bench-string-scan-str.md").default %></textarea
+          >
+        </section>
+        <section>
+          <h3><code>String#scan(str)</code></h3>
+          <div class="stat-container">
+            <div class="stat-box">
+              <!--
+precise-time 30 /usr/local/var/rbenv/versions/2.6.3/bin/ruby --disable-gems --disable-did_you_mean string-scan-str.rb
+1325 1328 1323 1328 1315 1314 1324 1312 1323 1314 1329 1347 1318 1322 1321 1319 1336 1362 1364 1350 1390 1351 1334 1394 1351 1325 1330 1351 1349 1396
+1338 [1312-1396] ms
+14 [14-14] MB
+-->
+              <div class="stat-box-type">
+                MRI
+              </div>
+              <div class="stat-box-number">
+                0.74
+              </div>
+              <div class="stat-box-units">
+                iterations / second
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-box">
+              <!--
+precise-time 30 artichoke/target/release/artichoke string-scan-str.rb
+1236 1241 1275 1259 1268 1271 1251 1275 1272 1244 1244 1253 1273 1263 1269 1289 1279 1307 1302 1301 1275 1277 1274 1265 1252 1268 1275 1249 1258 1259
+1268 [1236-1307] ms
+34 [30-35] MB
+-->
+              <div class="stat-box-type stat-box-win">
+                Artichoke
+              </div>
+              <div class="stat-box-number">
+                0.79
+              </div>
+              <div class="stat-box-units">
+                iterations / second
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3><code>String#scan(str)</code></h3>
+          <div class="stat-container">
+            <div class="stat-box">
+              <!--
+precise-time 30 /usr/local/var/rbenv/versions/2.6.3/bin/ruby --disable-gems --disable-did_you_mean string-scan-str.rb
+1325 1328 1323 1328 1315 1314 1324 1312 1323 1314 1329 1347 1318 1322 1321 1319 1336 1362 1364 1350 1390 1351 1334 1394 1351 1325 1330 1351 1349 1396
+1338 [1312-1396] ms
+14 [14-14] MB
+-->
+              <div class="stat-box-type stat-box-win">
+                MRI
+              </div>
+              <div class="stat-box-number">
+                14
+              </div>
+              <div class="stat-box-units">
+                MB / iteration
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-box">
+              <!--
+precise-time 30 artichoke/target/release/artichoke string-scan-str.rb
+1236 1241 1275 1259 1268 1271 1251 1275 1272 1244 1244 1253 1273 1263 1269 1289 1279 1307 1302 1301 1275 1277 1274 1265 1252 1268 1275 1249 1258 1259
+1268 [1236-1307] ms
+34 [30-35] MB
+-->
+              <div class="stat-box-type">
+                Artichoke
+              </div>
+              <div class="stat-box-number">
+                34
+              </div>
+              <div class="stat-box-units">
+                MB / iteration
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3><code>String#scan</code></h3>
+          <div
+            class="fig-container"
+            style="overflow:hidden;"
+            data-file="learnxinyminutes-snippet.txt"
+            data-style="height: 500px; width: 500px"
+          ></div>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            <%= require("slides/bench-string-scan-needle.md").default %></textarea
+          >
+        </section>
+        <section>
+          <h3><code>String#scan</code></h3>
+          <div class="stat-container">
+            <div class="stat-box">
+              <!--
+env FIXTURE=artichoke/artichoke-frontend/ruby/fixtures/learnxinyminutes.txt precise-time 30 /usr/local/var/rbenv/versions/2.6.3/bin/ruby string_scan_needle.rb
+101 102 100 105 102 112 100 103 99 101 101 100 100 103 99 103 103 105 110 110 114 106 119 105 109 102 104 103 102 102
+104 [99-119] ms
+22 [22-23] MB
+-->
+              <div class="stat-box-type">
+                MRI
+              </div>
+              <div class="stat-box-number">
+                9.6
+              </div>
+              <div class="stat-box-units">
+                iterations / second
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-box">
+              <!--
+precise-time 30 artichoke/target/release/artichoke --with-fixture artichoke/artichoke-frontend/ruby/fixtures/learnxinyminutes.txt string_scan_needle.rb
+59 57 58 58 57 57 57 61 60 58 57 59 57 58 57 59 58 57 60 61 58 60 58 58 58 59 58 56 58 59
+58 [56-61] ms
+30 [30-30] MB
+-->
+              <div class="stat-box-type stat-box-win">
+                Artichoke
+              </div>
+              <div class="stat-box-number">
+                17.2
+              </div>
+              <div class="stat-box-units">
+                iterations / second
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3><code>String#scan</code></h3>
+          <div class="stat-container">
+            <div class="stat-box">
+              <!--
+env FIXTURE=artichoke/artichoke-frontend/ruby/fixtures/learnxinyminutes.txt precise-time 30 /usr/local/var/rbenv/versions/2.6.3/bin/ruby string_scan_needle.rb
+101 102 100 105 102 112 100 103 99 101 101 100 100 103 99 103 103 105 110 110 114 106 119 105 109 102 104 103 102 102
+104 [99-119] ms
+22 [22-23] MB
+-->
+              <div class="stat-box-type stat-box-win">
+                MRI
+              </div>
+              <div class="stat-box-number">
+                22
+              </div>
+              <div class="stat-box-units">
+                MB / iteration
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-box">
+              <!--
+precise-time 30 artichoke/target/release/artichoke --with-fixture artichoke/artichoke-frontend/ruby/fixtures/learnxinyminutes.txt string_scan_needle.rb
+59 57 58 58 57 57 57 61 60 58 57 59 57 58 57 59 58 57 60 61 58 60 58 58 58 59 58 56 58 59
+58 [56-61] ms
+30 [30-30] MB
+-->
+              <div class="stat-box-type">
+                Artichoke
+              </div>
+              <div class="stat-box-number">
+                30
               </div>
               <div class="stat-box-units">
                 MB / iteration
