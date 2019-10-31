@@ -399,6 +399,36 @@ precise-time 30 artichoke/target/release/artichoke --with-fixture artichoke/arti
         </section>
         <section data-markdown>
           <textarea data-template>
+            <%= require("slides/bench-ary-sparse.md").default %></textarea
+          >
+        </section>
+        <section>
+          <h3>Sparse Array Allocation</h3>
+          <div class="stat-container">
+            <div class="stat-box">
+              <div class="stat-box-type">
+                MRI
+              </div>
+              <div class="stat-box-text">
+                failed to allocate memory (<code>NoMemoryError</code>)
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-box">
+              <div class="stat-box-type stat-box-win">
+                Artichoke
+              </div>
+              <div class="stat-box-number">
+                4
+              </div>
+              <div class="stat-box-units">
+                MB / iteration
+              </div>
+            </div>
+          </div>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
 <%= require("slides/demo-wasm.md").default %></textarea
           >
         </section>
