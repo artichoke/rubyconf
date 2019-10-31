@@ -13,6 +13,18 @@ const plugins = [
   }),
   new HtmlWebPackPlugin({
     template: "index.html",
+    filename: "index.html",
+    minify: {
+      collapseWhitespace: true,
+      minifyCSS: true,
+      minifyJS: true,
+      removeComments: true,
+      useShortDoctype: true
+    }
+  }),
+  new HtmlWebPackPlugin({
+    template: "2019/index.html",
+    filename: "2019/index.html",
     minify: {
       collapseWhitespace: true,
       minifyCSS: true,
@@ -35,7 +47,7 @@ module.exports = (env, argv) => {
   if (argv.mode === "production") {
     target = "release";
     cssLoader = MiniCssExtractPlugin.loader;
-    publicPath = "/rubyconf2019/";
+    publicPath = "/rubyconf/";
   }
   return {
     context: path.resolve(__dirname, "src"),

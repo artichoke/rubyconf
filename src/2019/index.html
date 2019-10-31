@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Artichoke is a Ruby Made with Rust 💎🦀</title>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/title.md").default %> </textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/section-what-is-ruby.md").default %> </textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/ruby-is-syntax.md").default %> </textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/ruby-is-core.md").default %> </textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/ruby-is-stdlib.md").default %> </textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/ruby-is-behavior.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/ruby-is-c-api.md").default %></textarea
+          >
+        </section>
+        <section>
+          <h3>Artichoke is Ruby</h3>
+          <p align="center">
+            <img alt="Artichoke is Ruby" src="<%= require("../logo-red.svg")
+            %>">
+          </p>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/section-where-can-we-go.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/where-single-binary.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/where-opt-stdlib.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/where-fearless-concurrency.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/where-opt-parallelism.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/where-polymorphic-core.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/where-performance.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/section-why-rust.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/rust-ffi.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/rust-deps.md").default %></textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/rust-wasm.md").default %></textarea
+          >
+        </section>
+        <section>
+          <h2>Benchmarks</h2>
+          <blockquote class="twitter-tweet tw-align-center">
+            <p lang="en" dir="ltr">
+              Micro benches are useless because they are too small for anyone to
+              sit on
+            </p>
+            &mdash; Aaron Patterson (@tenderlove)
+            <a
+              href="https://twitter.com/tenderlove/status/1189265228497854464?ref_src=twsrc%5Etfw"
+              >October 29, 2019</a
+            >
+          </blockquote>
+          <script
+            async
+            src="https://platform.twitter.com/widgets.js"
+            charset="utf-8"
+          ></script>
+          <div style="display: flex; flex-direction: row">
+            <div style="font-size: 1em; margin: auto">
+              <a href="https://rubybench.org/ruby/ruby/releases">
+                RubyBench 🏋️‍♀️
+              </a>
+            </div>
+          </div>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            <%= require("slides/bench-ary-shift.md").default %></textarea
+          >
+        </section>
+        <section>
+          <h3><code>Array#shift</code></h3>
+          <div class="stat-container">
+            <div class="stat-box">
+              <!--
+precise-time 30 /usr/local/var/rbenv/versions/2.6.3/bin/ruby --disable-gems --disable-did_you_mean ary-shift-bench.rb
+2965 2881 2914 2908 2909 2910 2898 2885 2887 2896 2910 2972 2885 2947 2904 2937 2905 2906 2904 2945 2875 2880 2907 2882 2903 2868 2885 2894 2878 2886
+2904 [2868-2972] ms
+3109 [3109-3109] MB
+-->
+              <div class="stat-box-type">
+                MRI
+              </div>
+              <div class="stat-box-number">
+                0.3
+              </div>
+              <div class="stat-box-units">
+                iterations / second
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-box">
+              <!--
+precise-time 30 artichoke/target/release/artichoke ary-shift-bench.rb
+10 9 9 10 9 9 11 11 10 10 9 11 10 10 10 10 11 10 10 10 9 9 10 10 11 10 10 10 10 10
+10 [9-11] ms
+3 [3-3] MB
+-->
+              <div class="stat-box-type stat-box-win">
+                Artichoke
+              </div>
+              <div class="stat-box-number">
+                100
+              </div>
+              <div class="stat-box-units">
+                iterations / second
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3><code>Array#shift</code></h3>
+          <div class="stat-container">
+            <div class="stat-box">
+              <!--
+precise-time 30 /usr/local/var/rbenv/versions/2.6.3/bin/ruby --disable-gems --disable-did_you_mean ary-shift-bench.rb
+2965 2881 2914 2908 2909 2910 2898 2885 2887 2896 2910 2972 2885 2947 2904 2937 2905 2906 2904 2945 2875 2880 2907 2882 2903 2868 2885 2894 2878 2886
+2904 [2868-2972] ms
+3109 [3109-3109] MB
+-->
+              <div class="stat-box-type">
+                MRI
+              </div>
+              <div class="stat-box-number">
+                3109
+              </div>
+              <div class="stat-box-units">
+                MB / iteration
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-box">
+              <!--
+precise-time 30 artichoke/target/release/artichoke ary-shift-bench.rb
+10 9 9 10 9 9 11 11 10 10 9 11 10 10 10 10 11 10 10 10 9 9 10 10 11 10 10 10 10 10
+10 [9-11] ms
+3 [3-3] MB
+-->
+              <div class="stat-box-type stat-box-win">
+                Artichoke
+              </div>
+              <div class="stat-box-number">
+                3
+              </div>
+              <div class="stat-box-units">
+                MB / iteration
+              </div>
+            </div>
+          </div>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            <%= require("slides/bench-string-scan-str.md").default %></textarea
+          >
+        </section>
+        <section>
+          <h3><code>String#scan(str)</code></h3>
+          <div class="stat-container">
+            <div class="stat-box">
+              <!--
+precise-time 30 /usr/local/var/rbenv/versions/2.6.3/bin/ruby --disable-gems --disable-did_you_mean string-scan-str.rb
+1325 1328 1323 1328 1315 1314 1324 1312 1323 1314 1329 1347 1318 1322 1321 1319 1336 1362 1364 1350 1390 1351 1334 1394 1351 1325 1330 1351 1349 1396
+1338 [1312-1396] ms
+14 [14-14] MB
+-->
+              <div class="stat-box-type">
+                MRI
+              </div>
+              <div class="stat-box-number">
+                0.74
+              </div>
+              <div class="stat-box-units">
+                iterations / second
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-box">
+              <!--
+precise-time 30 artichoke/target/release/artichoke string-scan-str.rb
+1236 1241 1275 1259 1268 1271 1251 1275 1272 1244 1244 1253 1273 1263 1269 1289 1279 1307 1302 1301 1275 1277 1274 1265 1252 1268 1275 1249 1258 1259
+1268 [1236-1307] ms
+34 [30-35] MB
+-->
+              <div class="stat-box-type stat-box-win">
+                Artichoke
+              </div>
+              <div class="stat-box-number">
+                0.79
+              </div>
+              <div class="stat-box-units">
+                iterations / second
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3><code>String#scan(str)</code></h3>
+          <div class="stat-container">
+            <div class="stat-box">
+              <!--
+precise-time 30 /usr/local/var/rbenv/versions/2.6.3/bin/ruby --disable-gems --disable-did_you_mean string-scan-str.rb
+1325 1328 1323 1328 1315 1314 1324 1312 1323 1314 1329 1347 1318 1322 1321 1319 1336 1362 1364 1350 1390 1351 1334 1394 1351 1325 1330 1351 1349 1396
+1338 [1312-1396] ms
+14 [14-14] MB
+-->
+              <div class="stat-box-type stat-box-win">
+                MRI
+              </div>
+              <div class="stat-box-number">
+                14
+              </div>
+              <div class="stat-box-units">
+                MB / iteration
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-box">
+              <!--
+precise-time 30 artichoke/target/release/artichoke string-scan-str.rb
+1236 1241 1275 1259 1268 1271 1251 1275 1272 1244 1244 1253 1273 1263 1269 1289 1279 1307 1302 1301 1275 1277 1274 1265 1252 1268 1275 1249 1258 1259
+1268 [1236-1307] ms
+34 [30-35] MB
+-->
+              <div class="stat-box-type">
+                Artichoke
+              </div>
+              <div class="stat-box-number">
+                34
+              </div>
+              <div class="stat-box-units">
+                MB / iteration
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3><code>String#scan</code></h3>
+          <div
+            class="fig-container"
+            style="overflow:hidden;"
+            data-file="<%= require('../learnxinyminutes-truncated.txt') %>"
+            data-style="height: 500px; width: 500px"
+          ></div>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            <%= require("slides/bench-string-scan-needle.md").default %></textarea
+          >
+        </section>
+        <section>
+          <h3><code>String#scan</code></h3>
+          <div class="stat-container">
+            <div class="stat-box">
+              <!--
+env FIXTURE=artichoke/artichoke-frontend/ruby/fixtures/learnxinyminutes.txt precise-time 30 /usr/local/var/rbenv/versions/2.6.3/bin/ruby string_scan_needle.rb
+121 106 107 105 111 105 106 104 112 107 105 105 107 104 103 110 103 108 104 104 106 106 103 108 104 103 106 104 103 104
+106 [103-121] ms
+23 [23-23] MB
+-->
+              <div class="stat-box-type">
+                MRI
+              </div>
+              <div class="stat-box-number">
+                9.4
+              </div>
+              <div class="stat-box-units">
+                iterations / second
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-box">
+              <!--
+precise-time 30 artichoke/target/release/artichoke --with-fixture artichoke/artichoke-frontend/ruby/fixtures/learnxinyminutes.txt string_scan_needle.rb
+66 68 70 66 66 67 68 67 67 66 64 65 67 67 66 67 66 67 66 71 66 67 66 67 68 65 66 66 67 67
+67 [64-71] ms
+36 [36-36] MB
+-->
+              <div class="stat-box-type stat-box-win">
+                Artichoke
+              </div>
+              <div class="stat-box-number">
+                15.0
+              </div>
+              <div class="stat-box-units">
+                iterations / second
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3><code>String#scan</code></h3>
+          <div class="stat-container">
+            <div class="stat-box">
+              <!--
+env FIXTURE=artichoke/artichoke-frontend/ruby/fixtures/learnxinyminutes.txt precise-time 30 /usr/local/var/rbenv/versions/2.6.3/bin/ruby string_scan_needle.rb
+121 106 107 105 111 105 106 104 112 107 105 105 107 104 103 110 103 108 104 104 106 106 103 108 104 103 106 104 103 104
+106 [103-121] ms
+23 [23-23] MB
+-->
+              <div class="stat-box-type stat-box-win">
+                MRI
+              </div>
+              <div class="stat-box-number">
+                23
+              </div>
+              <div class="stat-box-units">
+                MB / iteration
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-box">
+              <!--
+precise-time 30 artichoke/target/release/artichoke --with-fixture artichoke/artichoke-frontend/ruby/fixtures/learnxinyminutes.txt string_scan_needle.rb
+66 68 70 66 66 67 68 67 67 66 64 65 67 67 66 67 66 67 66 71 66 67 66 67 68 65 66 66 67 67
+67 [64-71] ms
+36 [36-36] MB
+-->
+              <div class="stat-box-type">
+                Artichoke
+              </div>
+              <div class="stat-box-number">
+                36
+              </div>
+              <div class="stat-box-units">
+                MB / iteration
+              </div>
+            </div>
+          </div>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            <%= require("slides/bench-ary-sparse.md").default %></textarea
+          >
+        </section>
+        <section>
+          <h3>Sparse Array Allocation</h3>
+          <div class="stat-container">
+            <div class="stat-box">
+              <div class="stat-box-type">
+                MRI
+              </div>
+              <div class="stat-box-text">
+                failed to allocate memory (<code>NoMemoryError</code>)
+              </div>
+              <div class="stat-box-units"></div>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-box">
+              <div class="stat-box-type stat-box-win">
+                Artichoke
+              </div>
+              <div class="stat-box-number">
+                4
+              </div>
+              <div class="stat-box-units">
+                MB / iteration
+              </div>
+            </div>
+          </div>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/demo-wasm.md").default %></textarea
+          >
+        </section>
+        <section>
+          <div
+            class="fig-container"
+            style="overflow:hidden;"
+            data-file="https://artichoke.run"
+            data-style="height: 960px; width: 960px; margin-top: -64px;"
+          ></div>
+        </section>
+      </div>
+    </div>
+    <div id="hidden" style="display:none;">
+      <div id="header">
+        <div class="header">
+          <div class="header-tweet">
+            <a
+              href="https://twitter.com/intent/tweet?screen_name=artichokeruby&ref_src=twsrc%5Etfw"
+              class="twitter-mention-button"
+              data-size="large"
+              data-show-count="false"
+            >
+              Tweet to @artichokeruby
+            </a>
+            <script
+              src="https://platform.twitter.com/widgets.js"
+              charset="utf-8"
+            ></script>
+          </div>
+          <div></div>
+          <div class="header-logo"></div>
+        </div>
+        <div class="footer-logo">
+          <img src="<%= require("@artichoke/logo/logo.svg") %>" height="125" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
