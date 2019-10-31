@@ -9,7 +9,7 @@ const webpack = require("webpack");
 const plugins = [
   new MiniCssExtractPlugin({
     filename: "[name].[hash].css",
-    chunkFilename: "[name].[id].css"
+    chunkFilename: "[id].css"
   }),
   new HtmlWebPackPlugin({
     template: "index.html",
