@@ -16,16 +16,66 @@
 <%= require("slides/title.md").default %> </textarea
           >
         </section>
+        <section>
+          <h3>Why Build a Ruby? 🏗💎</h3>
+          <iframe
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+            width="544.6800000000001"
+            height="306"
+            type="text/html"
+            src="https://www.youtube.com/embed/qybUFnY7Y8w?autoplay=1&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&mute=1"
+          ></iframe>
+        </section>
         <section data-markdown>
           <textarea data-template>
-<%= require("slides/section-what-is-ruby.md").default %> </textarea
+<%= require("slides/section-goals.md").default %> </textarea
+          >
+        </section>
+        <section>
+          <h3>Build for WebAssembly Targets</h3>
+          <div
+            class="fig-container"
+            data-file="https://artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Arequire%20'strscan'%0A%0Ascanner%20%3D%20StringScanner.new(RUBY_DESCRIPTION)%0Ascanner.scan_until(%2F%5C%5B(%3F%3Cplatform%3E.%2B)%5C%5D%2F)%0A%0Aplatform%20%3D%20scanner%5B%3Aplatform%5D%0Aputs%20%22%F0%9F%91%8B%20from%20%23%7Bplatform%7D%20%F0%9F%8E%AF%22"
+            data-style="height: 400px"
+          ></div>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+<%= require("slides/section-what-is-webassembly.md").default %> </textarea
           >
         </section>
         <section data-markdown>
           <textarea data-template>
-<%= require("slides/ruby-is-syntax.md").default %> </textarea
+            <%= require("slides/section-wasm-eli5.md").default %> </textarea
           >
         </section>
+        <section data-markdown>
+          <textarea data-template>
+            <%= require("slides/section-wasm-benefits.md").default %> </textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            <%= require("slides/section-wasm-untrusted-env.md").default %> </textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            <%= require("slides/untrusted-env-environ.md").default %> </textarea
+          >
+        </section>
+        <section>
+          <h3>Untrusted <code>ENV</code> Access</h3>
+          <div
+            class="fig-container"
+            data-file="https://artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Aputs%20ENV.size%0AENV.to_h"
+            data-style="height: 400px"
+          ></div>
+        </section>
+
         <section data-markdown>
           <textarea data-template>
 <%= require("slides/ruby-is-core.md").default %> </textarea
