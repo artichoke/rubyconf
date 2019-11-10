@@ -131,13 +131,17 @@ button:active {
   font-size: 1em;
 }
 
-.stat-box-win::before {
+.stat-box-win .stat-box-type::before {
   content: "📊 ";
 }
 
 .stat-box-number {
   font-weight: bold;
   font-size: 4em;
+}
+
+.stat-box-win .stat-box-number {
+  color: #28a745;
 }
 
 .stat-box-text {

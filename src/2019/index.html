@@ -267,14 +267,14 @@
         <section>
           <h3><code>String#scan</code></h3>
           <div class="stat-container">
-            <div class="stat-box">
+            <div class="stat-box stat-box-win">
               <!--
 ubuntu@ip-172-31-21-76:~$ precise-time 50 $HOME/bin/artichoke --with-fixture learnxinyminutes.txt bench_string_needle.rb
 64 65 64 65 64 65 64 66 66 66 67 67 67 65 65 65 65 65 66 64 66 66 66 66 64 63 64 66 66 68 67 66 67 66 66 66 67 68 67 67 65 65 64 65 64 65 66 66 67 66
 66 [63-68] ms
 45 [45-45] MB
 -->
-              <div class="stat-box-type stat-box-win">
+              <div class="stat-box-type">
                 Artichoke
               </div>
               <div class="stat-box-number">
@@ -322,14 +322,14 @@ ubuntu@ip-172-31-21-76:~$ env FIXTURE=learnxinyminutes.txt precise-time 50 $HOME
         <section>
           <h3><code>String#scan</code></h3>
           <div class="stat-container">
-            <div class="stat-box">
+            <div class="stat-box stat-box-win">
               <!--
 ubuntu@ip-172-31-21-76:~$ precise-time 50 $HOME/bin/artichoke --with-fixture learnxinyminutes.txt bench_string_needle_re.rb
 50 50 49 49 49 49 47 48 47 48 49 49 48 49 48 47 46 47 46 47 47 48 49 49 48 48 49 50 48 48 51 48 49 48 49 49 49 49 51 49 47 48 47 47 48 48 50 49 47 48
 48 [46-51] ms
 33 [33-33] MB
 -->
-              <div class="stat-box-type stat-box-win">
+              <div class="stat-box-type">
                 Artichoke
               </div>
               <div class="stat-box-number">
@@ -367,24 +367,14 @@ ubuntu@ip-172-31-21-76:~$ env FIXTURE=learnxinyminutes.txt precise-time 50 $HOME
         <section>
           <h3>Sparse Array Allocation</h3>
           <div class="stat-container">
-            <div class="stat-box">
-              <div class="stat-box-type">
-                MRI
-              </div>
-              <div class="stat-box-text">
-                failed to allocate memory (<code>NoMemoryError</code>)
-              </div>
-              <div class="stat-box-units"></div>
-            </div>
-            <div class="divider"></div>
-            <div class="stat-box">
+            <div class="stat-box stat-box-win">
               <!--
 ubuntu@ip-172-31-21-76:~$ precise-time 50 $HOME/bin/artichoke bench_ary_sparse.rb
 14 14 14 14 14 14 13 13 13 14 14 14 14 13 13 13 13 13 13 13 14 14 14 13 13 13 13 13 14 13 14 14 14 14 14 13 13 13 13 13 13 13 13 13 14 14 14 14 14 14
 14 [13-14] ms
 7 [7-7] MB
 -->
-              <div class="stat-box-type stat-box-win">
+              <div class="stat-box-type">
                 Artichoke
               </div>
               <div class="stat-box-number">
@@ -393,6 +383,16 @@ ubuntu@ip-172-31-21-76:~$ precise-time 50 $HOME/bin/artichoke bench_ary_sparse.r
               <div class="stat-box-units">
                 MB / iteration
               </div>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-box">
+              <div class="stat-box-type">
+                MRI
+              </div>
+              <div class="stat-box-text">
+                failed to allocate memory (<code>NoMemoryError</code>)
+              </div>
+              <div class="stat-box-units"></div>
             </div>
           </div>
         </section>
