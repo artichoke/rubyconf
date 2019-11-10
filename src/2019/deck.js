@@ -16,10 +16,30 @@ import "reveal.js/plugin/notes/notes";
 import hljs from "highlight.js";
 import "highlight.js/styles/monokai-sublime.css";
 
-import "./artichoke.css";
-import "./learnxinyminutes.txt";
+import "../artichoke.css";
+import "../learnxinyminutes.txt";
 
 document.addEventListener("DOMContentLoaded", () => {
+  Reveal.addEventListener("ready", () => {
+    // event.currentSlide, event.indexh, event.indexv
+    $("div.artichoke-chrome").appendTo("div.reveal");
+    $("div.artichoke-chrome").show();
+
+    window.twttr = ((d, s, id) => {
+      const fjs = d.getElementsByTagName(s)[0];
+      const t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      const js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = f => t._e.push(f);
+
+      return t;
+    })(document, "script", "twitter-wjs");
+  });
   Reveal.initialize({
     width: 960,
     // margin: 0.05, // Factor of the display size that should remain empty around the content
@@ -35,7 +55,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // callback function needed for syntax highlithging to work
   hljs.initHighlightingOnLoad();
-
-  const header = $("#header").html();
-  $("div.reveal").append(header);
 });

@@ -26,7 +26,7 @@ const plugins = [
   new HtmlWebPackPlugin({
     template: "2019/index.html",
     filename: "2019/index.html",
-    chunks: ["presentation"],
+    chunks: ["deck.2019"],
     minify: {
       collapseWhitespace: true,
       minifyCSS: true,
@@ -43,11 +43,9 @@ const plugins = [
 ];
 
 module.exports = (env, argv) => {
-  let target = "debug";
   let cssLoader = "style-loader";
   let publicPath = "/";
   if (argv.mode === "production") {
-    target = "release";
     cssLoader = MiniCssExtractPlugin.loader;
     publicPath = "/rubyconf/";
   }
@@ -60,7 +58,7 @@ module.exports = (env, argv) => {
     },
     entry: {
       landing: path.resolve(__dirname, "src/landing.js"),
-      presentation: path.resolve(__dirname, "src/presentation.js")
+      "deck.2019": path.resolve(__dirname, "src/2019/deck.js")
     },
     output: {
       filename: "[name].[hash].bundle.js",
@@ -71,17 +69,10 @@ module.exports = (env, argv) => {
       rules: [
         {
           test: /\.jsx?$/,
-          exclude: /(node_modules|wasm32)/,
+          exclude: /node_modules/,
           use: {
             loader: "babel-loader"
           }
-        },
-        {
-          test: path.resolve(
-            __dirname,
-            `target/wasm32-unknown-emscripten/${target}/playground.js`
-          ),
-          use: ["uglify-loader", "script-loader"]
         },
         {
           test: /\.css$/,
@@ -93,14 +84,7 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.svg/,
-          use: [
-            {
-              loader: "file-loader",
-              options: {
-                name: "[name].[ext]"
-              }
-            }
-          ]
+          use: ["svg-url-loader"]
         },
         {
           test: /\.rb$/,
@@ -115,25 +99,12 @@ module.exports = (env, argv) => {
           use: ["file-loader"]
         },
         {
-          test: /\.wasm$/,
-          type: "javascript/auto",
-          use: [
-            {
-              loader: "file-loader",
-              options: {
-                name: "[name].[ext]"
-              }
-            }
-          ]
-        },
-        {
           test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
           use: [
             {
               loader: "file-loader",
               options: {
-                name: "[name].[ext]",
-                outputPath: "fonts/"
+                outputPath: "font/"
               }
             }
           ]

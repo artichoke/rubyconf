@@ -1,9 +1,10 @@
-#### Core Classes and Modules
+### Ruby Core
 
 ```ruby
+ENV['DRY_RUN'] = '0'
 ary = Array.new(1024, 'Artichoke Ruby')
-h = Hash[:conference, 'RubyConf', :year, 2019]
 fixture = File.readlines(
   'artichoke-frontend/ruby/fixtures/learnxinyminutes.txt'
 )
+/function/.match(fixture)
 ```

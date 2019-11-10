@@ -12,7 +12,7 @@ end
 
 b = a.reverse
 
-b[500_000, 500_000] = [Object.new, /Array/, 100.0]
+b[123_456_789, 500_000] = [Object.new, /Array/, 100.0]
 
 puts a.length # => 1000000000001102
 puts b.length # => 999999999501105

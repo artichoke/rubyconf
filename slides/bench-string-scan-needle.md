@@ -1,6 +1,6 @@
 ### `String#scan`
 
-6.8MB text corpus with Unicode contents 📚
+`String` pattern over 6.8MB of Unicode text 📚
 
 ```ruby
 raise unless $fixture.scan('http://').length == 3539
