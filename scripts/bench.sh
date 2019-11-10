@@ -32,7 +32,7 @@ ruby --version
 artichoke --version
 
 wget https://raw.githubusercontent.com/artichoke/artichoke/master/artichoke-frontend/ruby/fixtures/learnxinyminutes.txt
-cat <<'EOF' > bench_string_needle.rb
+cat <<'EOF' >bench_string_needle.rb
 # frozen_string_literal: true
 
 # rubocop:disable Style/GlobalVars
@@ -46,7 +46,7 @@ raise 'mismatch' unless $fixture.scan('表达式').length == 120
 raise 'mismatch' unless $fixture.scan("\r\n").empty?
 # rubocop:enable Style/GlobalVars
 EOF
-cat <<'EOF' > bench_string_needle_re.rb
+cat <<'EOF' >bench_string_needle_re.rb
 # frozen_string_literal: true
 
 # rubocop:disable Style/GlobalVars
@@ -60,7 +60,7 @@ raise 'mismatch' unless $fixture.scan(/\r\n/).empty?
 # rubocop:enable Style/GlobalVars
 EOF
 
-cat <<'EOF' > bench_ary_sparse.rb
+cat <<'EOF' >bench_ary_sparse.rb
 # frozen_string_literal: true
 
 a = []
