@@ -2,4 +2,4 @@
 
 🏎💨 🏎🏎
 
-<small>Benchmarks run on AWS `c5.2xlarge` 💪</small>
+<small>Benchmarks run on AWS `c5.2xlarge` 🖥🖥</small>
