@@ -1,5 +1,5 @@
 ### Goals
 
 - Build for WebAssembly 🎯
-- Execute untrusted code 🕵️‍♀️
+- Execute untrusted code 🔦🔍
 - Package single-binary apps 🧳
