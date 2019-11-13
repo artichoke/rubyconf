@@ -1,3 +1,3 @@
 #### Single Binary Apps
 
-Apps have a large system footprint 🐾
+Dead simple, hermetic deployments 🍱
