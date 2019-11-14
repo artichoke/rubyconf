@@ -28,7 +28,10 @@
 
         <section>
           <h3>Artichoke Ruby</h3>
-          <iframe class="playground" src="https://artichoke.run/?embed">
+          <iframe
+            class="playground"
+            src="https://artichoke.run/#%23%20frozen_string_literal%3A%20true%0A%0Arequire%20'forwardable'%0Arequire%20'json'%0A%0Aclass%20Properties%0A%20%20extend%20Forwardable%0A%20%20def_delegators%20%3A%40properties%2C%20%3A%5B%5D%2C%20%3A%5B%5D%3D%2C%20%3Ato_json%0A%0A%20%20def%20initialize(name)%0A%20%20%20%20%40name%20%3D%20name%0A%20%20%20%20%40properties%20%3D%20%7B%7D%0A%20%20end%0Aend%0A%0Aartichoke%20%3D%20Properties.new('Artichoke%20Ruby')%0Aartichoke%5B%3Alanguage%5D%20%3D%20'Ruby'%0Aartichoke%5B%3Aimplementation%5D%20%3D%20'Artichoke'%0Aartichoke%5B%3Atarget%5D%20%3D%20'wasm'%0Aartichoke%5B%3Aemoji%5D%20%3D%20'%F0%9F%92%8E'%0A%0Aserialized%20%3D%20JSON.pretty_generate(artichoke)%0A%0Aputs%20serialized%20if%20serialized%20%3D~%20%2F%F0%9F%92%8E%2F"
+          >
           </iframe>
         </section>
         <section>
