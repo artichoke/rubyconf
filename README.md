@@ -17,6 +17,14 @@ You can [try Artichoke in your browser](https://artichoke.run). The
   </a>
 </p>
 
+## Contributing
+
+Artichoke is looking for contributors. Rust or Ruby knowledge is not a
+prerequisite. Good first issues are labeled
+[`E-easy`](https://github.com/artichoke/artichoke/labels/E-easy) and Artichoke
+needs help on issues labeled
+[`E-help-wanted`](https://github.com/artichoke/artichoke/labels/E-help-wanted).
+
 ## 2019 – Artichoke Is a Ruby Made With Rust
 
 Talk:
