@@ -1,6 +1,6 @@
 # RubyConf
 
-[![CircleCI](https://circleci.com/gh/artichoke/rubyconf.svg?style=svg)](https://circleci.com/gh/artichoke/rubyconf)
+[![CircleCI](https://circleci.com/gh/artichoke/rubyconf.svg?style=svg&cache=bust)](https://circleci.com/gh/artichoke/rubyconf)
 [![Discord](https://img.shields.io/discord/607683947496734760)](https://discord.gg/QCe2tp2)
 [![Twitter](https://img.shields.io/twitter/follow/artichokeruby?label=Follow&style=social)](https://twitter.com/artichokeruby)
 
