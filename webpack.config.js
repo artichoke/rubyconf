@@ -65,14 +65,13 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, "dist"),
       publicPath
     },
+    plugins,
     module: {
       rules: [
         {
           test: /\.jsx?$/,
           exclude: /node_modules/,
-          use: {
-            loader: "babel-loader"
-          }
+          use: "babel-loader",
         },
         {
           test: /\.css$/,
@@ -80,39 +79,42 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.(jpe?g|png|gif)$/,
-          use: ["url-loader", "image-webpack-loader"]
+          use: {
+            loader: "url-loader",
+            options: {
+              limit: 8192,
+            },
+          },
         },
         {
-          test: /\.svg/,
-          use: ["svg-url-loader"]
+          test: /\.svg$/,
+          use: ["file-loader", "svgo-loader"],
         },
         {
           test: /\.rb$/,
-          use: ["raw-loader"]
+          use: "raw-loader",
         },
         {
           test: /\.md$/,
-          use: ["raw-loader"]
+          use: "raw-loader",
         },
         {
           test: /\.txt$/,
-          use: ["file-loader"]
+          use: "file-loader",
         },
         {
           test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-          use: [
-            {
-              loader: "file-loader",
-              options: {
-                outputPath: "font/"
-              }
-            }
-          ]
+          use: {
+            loader: "file-loader",
+            options: {
+              outputPath: "font/",
+            },
+          },
         }
       ]
     },
-    plugins,
     optimization: {
+      minimize: true,
       minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin()]
     }
   };
