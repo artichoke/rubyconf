@@ -1,6 +1,6 @@
 # RubyConf
 
-[![CircleCI](https://circleci.com/gh/artichoke/rubyconf.svg?style=svg)](https://circleci.com/gh/artichoke/rubyconf)
+[![GitHub Actions](https://github.com/artichoke/rubyconf/workflows/CI/badge.svg)](https://github.com/artichoke/rubyconf/actions)
 [![Discord](https://img.shields.io/discord/607683947496734760)](https://discord.gg/QCe2tp2)
 [![Twitter](https://img.shields.io/twitter/follow/artichokeruby?label=Follow&style=social)](https://twitter.com/artichokeruby)
 
@@ -13,7 +13,7 @@ You can [try Artichoke in your browser](https://artichoke.run). The
 
 <p align="center">
   <a href="https://artichoke.run">
-    <img height="200" width="200" src="https://artichoke.run/logo.svg">
+    <img height="200" width="200" src="https://artichoke.github.io/rubyconf/artichoke-logo.svg">
   </a>
 </p>
 
