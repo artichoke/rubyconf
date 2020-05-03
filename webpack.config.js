@@ -9,7 +9,7 @@ const webpack = require("webpack");
 const plugins = [
   new MiniCssExtractPlugin({
     filename: "[name].[hash].css",
-    chunkFilename: "[id].css"
+    chunkFilename: "[id].css",
   }),
   new HtmlWebPackPlugin({
     template: "index.html",
@@ -20,8 +20,8 @@ const plugins = [
       minifyCSS: true,
       minifyJS: true,
       removeComments: true,
-      useShortDoctype: true
-    }
+      useShortDoctype: true,
+    },
   }),
   new HtmlWebPackPlugin({
     template: "2019/index.html",
@@ -32,14 +32,14 @@ const plugins = [
       minifyCSS: true,
       minifyJS: true,
       removeComments: true,
-      useShortDoctype: true
-    }
+      useShortDoctype: true,
+    },
   }),
   new HtmlWebpackInlineSourcePlugin(),
   new webpack.ProvidePlugin({
     Reveal: "reveal.js",
-    hljs: "highlight.js/lib/highlight"
-  })
+    hljs: "highlight.js/lib/highlight",
+  }),
 ];
 
 module.exports = (env, argv) => {
@@ -53,17 +53,17 @@ module.exports = (env, argv) => {
     context: path.resolve(__dirname, "src"),
     resolve: {
       alias: {
-        slides: path.resolve(__dirname, "slides")
-      }
+        slides: path.resolve(__dirname, "slides"),
+      },
     },
     entry: {
       landing: path.resolve(__dirname, "src/landing.js"),
-      "deck.2019": path.resolve(__dirname, "src/2019/deck.js")
+      "deck.2019": path.resolve(__dirname, "src/2019/deck.js"),
     },
     output: {
       filename: "[name].[hash].bundle.js",
       path: path.resolve(__dirname, "dist"),
-      publicPath
+      publicPath,
     },
     plugins,
     module: {
@@ -75,7 +75,7 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.css$/,
-          use: [cssLoader, "css-loader"]
+          use: [cssLoader, "css-loader"],
         },
         {
           test: /\.(jpe?g|png|gif)$/,
@@ -110,12 +110,12 @@ module.exports = (env, argv) => {
               outputPath: "font/",
             },
           },
-        }
-      ]
+        },
+      ],
     },
     optimization: {
       minimize: true,
-      minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin()]
-    }
+      minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin()],
+    },
   };
 };

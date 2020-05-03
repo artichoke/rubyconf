@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fjs.parentNode.insertBefore(js, fjs);
 
       t._e = [];
-      t.ready = f => t._e.push(f);
+      t.ready = (f) => t._e.push(f);
 
       return t;
     })(document, "script", "twitter-wjs");
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     keyboard: true, // Enable keyboard shortcuts for navigation
     overview: true,
     transition: "slide", // Transition style: none/fade/slide/convex/concave/zoom
-    transitionSpeed: "default" // Transition speed: default/fast/slow
+    transitionSpeed: "default", // Transition speed: default/fast/slow
   });
 
   // callback function needed for syntax highlithging to work
