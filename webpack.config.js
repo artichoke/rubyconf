@@ -51,6 +51,7 @@ module.exports = (env, argv) => {
     context: path.resolve(__dirname, "src"),
     resolve: {
       alias: {
+        assets: path.resolve(__dirname, "assets"),
         slides: path.resolve(__dirname, "slides"),
       },
     },
@@ -76,7 +77,17 @@ module.exports = (env, argv) => {
           use: [cssLoader, "css-loader"],
         },
         {
+          test: new RegExp(path.resolve(__dirname, "assets")),
+          use: {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+            },
+          },
+        },
+        {
           test: /\.(jpe?g|png|gif)$/,
+          exclude: new RegExp(path.resolve(__dirname, "assets")),
           use: {
             loader: "url-loader",
             options: {
