@@ -14,8 +14,14 @@
     />
     <meta property="og:description" content="Presentation from RubyConf 2019" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://artichoke.run/logo.png" />
+    <meta
+      property="og:image"
+      content="https://artichoke.github.io/rubyconf/artichoke-logo.png"
+    />
     <title>Artichoke is a Ruby Made with Rust 💎🦀</title>
+
+    <%= require('html-loader!../partials/favicons.html') %> <%=
+    require('html-loader!../partials/google-analytics.html') %>
   </head>
   <body>
     <div class="reveal">
@@ -68,7 +74,7 @@
           <p>
             <a
               class="IssueLabel"
-              style="background-color: #02e10c; color: #000000"
+              style="background-color: #02e10c; color: #000000;"
               title="Call for participation: Experience needed to fix: Easy / not much."
               href="https://github.com/artichoke/artichoke/labels/E-easy"
             >
@@ -76,7 +82,7 @@
             </a>
             <a
               class="IssueLabel"
-              style="background-color: #02e10c; color: #000000"
+              style="background-color: #02e10c; color: #000000;"
               title="Call for participation: Help is requested to fix this issue."
               href="https://github.com/artichoke/artichoke/labels/E-help-wanted"
             >
@@ -455,7 +461,7 @@ ubuntu@ip-172-31-21-76:~$ precise-time 50 $HOME/bin/artichoke bench_ary_sparse.r
           <p>
             <a
               class="IssueLabel"
-              style="background-color: #02e10c; color: #000000"
+              style="background-color: #02e10c; color: #000000;"
               title="Call for participation: Experience needed to fix: Easy / not much."
               href="https://github.com/artichoke/artichoke/labels/E-easy"
             >
@@ -463,7 +469,7 @@ ubuntu@ip-172-31-21-76:~$ precise-time 50 $HOME/bin/artichoke bench_ary_sparse.r
             </a>
             <a
               class="IssueLabel"
-              style="background-color: #02e10c; color: #000000"
+              style="background-color: #02e10c; color: #000000;"
               title="Call for participation: Help is requested to fix this issue."
               href="https://github.com/artichoke/artichoke/labels/E-help-wanted"
             >
@@ -473,7 +479,7 @@ ubuntu@ip-172-31-21-76:~$ precise-time 50 $HOME/bin/artichoke bench_ary_sparse.r
         </section>
       </div>
     </div>
-    <div class="artichoke-chrome" style="display: none">
+    <div class="artichoke-chrome" style="display: none;">
       <div class="header">
         <div class="header-tweet">
           <a
@@ -490,7 +496,7 @@ ubuntu@ip-172-31-21-76:~$ precise-time 50 $HOME/bin/artichoke bench_ary_sparse.r
       </div>
       <div class="footer-logo">
         <a href="https://github.com/artichoke/artichoke" alt="Artichoke Ruby">
-          <img src="<%= require("@artichoke/logo/logo.svg") %>" />
+          <img src="https://www.artichokeruby.org/artichoke-logo.svg" />
         </a>
       </div>
     </div>

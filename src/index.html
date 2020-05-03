@@ -11,15 +11,26 @@
     <meta property="og:url" content="https://artichoke.github.io/rubyconf/" />
     <meta property="og:description" content="Artichoke Ruby Talk Directory" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://artichoke.run/logo.png" />
+    <meta
+      property="og:image"
+      content="https://artichoke.github.io/rubyconf/artichoke-logo.png"
+    />
     <title>Artichoke RubyConf</title>
+
+    <%= require('html-loader!./partials/favicons.html') %> <%=
+    require('html-loader!./partials/google-analytics.html') %>
   </head>
-  <body style="height: 100vh">
+  <body style="height: 100vh;">
     <div class="reveal center">
-      <div style="text-align: center">
+      <div style="text-align: center;">
         <img
-          style="margin-left: auto; margin-right: auto; margin-top: 20px; display: block"
-          src="<%= require('@artichoke/logo/logo.svg') %>"
+          style="
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            display: block;
+          "
+          src="https://www.artichokeruby.org/artichoke-logo.svg"
           height="300"
           width="300"
           alt="Artichoke Ruby Logo"
@@ -46,7 +57,14 @@
         width="80"
         height="80"
         viewBox="0 0 250 250"
-        style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
+        style="
+          fill: #151513;
+          color: #fff;
+          position: absolute;
+          top: 0;
+          border: 0;
+          right: 0;
+        "
         aria-hidden="true"
       >
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
