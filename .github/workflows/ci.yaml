@@ -39,6 +39,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Install toolchain
+        run: npm ci
+
       - name: Lint with eslint
         run: npx eslint .
 
