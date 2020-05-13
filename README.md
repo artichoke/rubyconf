@@ -13,7 +13,7 @@ You can [try Artichoke in your browser](https://artichoke.run). The
 
 <p align="center">
   <a href="https://artichoke.run">
-    <img height="200" width="200" src="https://artichoke.github.io/rubyconf/artichoke-logo.svg">
+    <img height="200" width="200" src="https://artichoke.github.io/artichoke-logo.svg">
   </a>
 </p>
 
