@@ -1,6 +1,6 @@
 {
-  "name": "artichoke-playground",
-  "version": "0.1.0",
+  "name": "@artichoke/rubyconf",
+  "version": "0.2.0",
   "private": true,
   "description": "Artichoke Ruby conference talk website",
   "keywords": [
@@ -17,6 +17,10 @@
     "Ryan Lopopolo <rjl@hyperbo.la> (https://hyperbo.la/)"
   ],
   "repository": "github:artichoke/rubyconf",
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "reveal.js": "^4.0.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.11.4",
     "@babel/preset-env": "^7.11.0",
@@ -67,10 +71,6 @@
     "settings": {
       "import/resolver": "webpack"
     }
-  },
-  "dependencies": {
-    "jquery": "^3.5.1",
-    "reveal.js": "^4.0.2"
   },
   "scripts": {
     "dev": "npx webpack-dev-server",
