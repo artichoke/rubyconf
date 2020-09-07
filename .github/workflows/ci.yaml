@@ -2,10 +2,10 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - trunk
   pull_request:
     branches:
-      - master
+      - trunk
   schedule:
     - cron: "0 0 * * TUE"
 jobs:
@@ -22,9 +22,9 @@ jobs:
       - name: Webpack build
         run: npx webpack --mode production
 
-      - name: Deploy Docs
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/trunk'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
