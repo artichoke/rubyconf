@@ -1,4 +1,8 @@
 /*!
+	 * reveal.js plugin that adds syntax highlight support.
+	 */
+
+/*!
  * Sizzle CSS Selector Engine v2.3.5
  * https://sizzlejs.com/
  *
@@ -24,9 +28,9 @@
  */
 
 /*!
- * reveal.js
- * http://revealjs.com
- * MIT licensed
- *
- * Copyright (C) 2020 Hakim El Hattab, http://hakim.se
- */
+* reveal.js 4.0.2
+* https://revealjs.com
+* MIT licensed
+*
+* Copyright (C) 2020 Hakim El Hattab, https://hakim.se
+*/
