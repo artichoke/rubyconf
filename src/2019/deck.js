@@ -1,20 +1,14 @@
 import $ from "jquery";
 
 import Reveal from "reveal.js";
-import "reveald3/reveald3";
-import "reveal_external";
 
-import "reveal.js/css/reset.css";
-import "reveal.js/css/reveal.css";
-import "reveal.js/css/print/paper.css";
-import "reveal.js/css/theme/white.css";
+import "reveal.js/dist/reset.css";
+import "reveal.js/dist/reveal.css";
+import "reveal.js/dist/theme/white.css";
 
-import "reveal.js/plugin/markdown/markdown";
-import "reveal.js/plugin/markdown/marked";
-import "reveal.js/plugin/notes/notes";
-
-import hljs from "highlight.js";
-import "highlight.js/styles/monokai-sublime.css";
+import RevealMarkdown from "reveal.js/plugin/markdown/markdown";
+import RevealHighlight from "reveal.js/plugin/highlight/highlight";
+import "reveal.js/plugin/highlight/monokai.css";
 
 import "../artichoke.css";
 import "../learnxinyminutes.txt";
@@ -42,17 +36,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   Reveal.initialize({
     width: 960,
-    // margin: 0.05, // Factor of the display size that should remain empty around the content
-    controls: false, // Display controls in the bottom right corner
-    progress: true, // Display a presentation progress bar
-    slideNumber: false, // Display the page number of the current slide
-    history: true, // Push each slide change to the browser history
-    keyboard: true, // Enable keyboard shortcuts for navigation
+    controls: false,
+    progress: true,
+    slideNumber: false,
+    history: true,
+    keyboard: true,
     overview: true,
-    transition: "slide", // Transition style: none/fade/slide/convex/concave/zoom
-    transitionSpeed: "default", // Transition speed: default/fast/slow
+    transition: "slide",
+    transitionSpeed: "default",
+    plugins: [RevealMarkdown, RevealHighlight],
   });
-
-  // callback function needed for syntax highlithging to work
-  hljs.initHighlightingOnLoad();
 });
