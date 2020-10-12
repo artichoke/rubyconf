@@ -62,6 +62,7 @@
     ]
   },
   "scripts": {
+    "build": "webpack -p --mode production",
     "dev": "npx webpack-dev-server",
     "dev:open": "npx webpack-dev-server --open",
     "fmt": "npx prettier --write '**/*'",
