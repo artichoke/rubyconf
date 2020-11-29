@@ -36,7 +36,7 @@
           <h3>Artichoke Ruby</h3>
           <iframe
             class="playground"
-            src="https://artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Arequire%20'forwardable'%0Arequire%20'json'%0A%0Aclass%20Properties%0A%20%20extend%20Forwardable%0A%20%20def_delegators%20%3A%40properties%2C%20%3A%5B%5D%2C%20%3A%5B%5D%3D%2C%20%3Ato_json%0A%0A%20%20def%20initialize(name)%0A%20%20%20%20%40name%20%3D%20name%0A%20%20%20%20%40properties%20%3D%20%7B%7D%0A%20%20end%0Aend%0A%0Aartichoke%20%3D%20Properties.new('Artichoke%20Ruby')%0Aartichoke%5B%3Alanguage%5D%20%3D%20'Ruby'%0Aartichoke%5B%3Aimplementation%5D%20%3D%20'Artichoke'%0Aartichoke%5B%3Atarget%5D%20%3D%20'wasm'%0Aartichoke%5B%3Aemoji%5D%20%3D%20'%F0%9F%92%8E'%0A%0Aserialized%20%3D%20JSON.pretty_generate(artichoke)%0A%0Aputs%20serialized%20if%20serialized%20%3D~%20%2F%F0%9F%92%8E%2F"
+            src="https://rubyconf2019.artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Arequire%20'forwardable'%0Arequire%20'json'%0A%0Aclass%20Properties%0A%20%20extend%20Forwardable%0A%20%20def_delegators%20%3A%40properties%2C%20%3A%5B%5D%2C%20%3A%5B%5D%3D%2C%20%3Ato_json%0A%0A%20%20def%20initialize(name)%0A%20%20%20%20%40name%20%3D%20name%0A%20%20%20%20%40properties%20%3D%20%7B%7D%0A%20%20end%0Aend%0A%0Aartichoke%20%3D%20Properties.new('Artichoke%20Ruby')%0Aartichoke%5B%3Alanguage%5D%20%3D%20'Ruby'%0Aartichoke%5B%3Aimplementation%5D%20%3D%20'Artichoke'%0Aartichoke%5B%3Atarget%5D%20%3D%20'wasm'%0Aartichoke%5B%3Aemoji%5D%20%3D%20'%F0%9F%92%8E'%0A%0Aserialized%20%3D%20JSON.pretty_generate(artichoke)%0A%0Aputs%20serialized%20if%20serialized%20%3D~%20%2F%F0%9F%92%8E%2F"
           >
           </iframe>
         </section>
@@ -67,7 +67,7 @@
             </a>
           </p>
           <p>
-            <a href="https://artichoke.run">🎡 artichoke.run</a>
+            <a href="https://rubyconf2019.artichoke.run">🎡 artichoke.run</a>
           </p>
           <p>
             <a
@@ -156,7 +156,7 @@
           <h4>Deep Web Integration</h4>
           <iframe
             class="playground"
-            src="https://artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0A%3C%3CUSAGE%0AThis%20program%20is%20a%20quine%20built%20using%0AArtichoke%20Ruby%20and%20a%20gem%20based%20on%20stdweb.%0AUSAGE%0A%0Arequire%20'uri'%0Arequire%20'artichoke%2Fweb'%0A%0Alocation%20%3D%20Artichoke%3A%3AWeb%3A%3AWindow.location%0Acontents%20%3D%20location.hash%5B1..-1%5D%0Aputs%20URI.decode(contents)"
+            src="https://rubyconf2019.artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0A%3C%3CUSAGE%0AThis%20program%20is%20a%20quine%20built%20using%0AArtichoke%20Ruby%20and%20a%20gem%20based%20on%20stdweb.%0AUSAGE%0A%0Arequire%20'uri'%0Arequire%20'artichoke%2Fweb'%0A%0Alocation%20%3D%20Artichoke%3A%3AWeb%3A%3AWindow.location%0Acontents%20%3D%20location.hash%5B1..-1%5D%0Aputs%20URI.decode(contents)"
           ></iframe>
         </section>
         <section>
@@ -199,7 +199,7 @@
             <h4>Untrusted <code>ENV</code> Access</h4>
             <iframe
               class="playground"
-              src="https://artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Aputs%20%22%23%7BENV.size%7D%20keys%20in%20%23%7BENV%7D%22%0Aputs%20%22ENV%20%3D%20%23%7BENV.to_h%7D%22%0A%0AENV%5B'CONFERENCE'%5D%20%3D%20'RubyConf'%0A%0Aputs%20%22ENV%20%3D%20%23%7BENV.to_h%7D%22"
+              src="https://rubyconf2019.artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Aputs%20%22%23%7BENV.size%7D%20keys%20in%20%23%7BENV%7D%22%0Aputs%20%22ENV%20%3D%20%23%7BENV.to_h%7D%22%0A%0AENV%5B'CONFERENCE'%5D%20%3D%20'RubyConf'%0A%0Aputs%20%22ENV%20%3D%20%23%7BENV.to_h%7D%22"
             >
             </iframe>
           </section>
@@ -227,7 +227,7 @@
             <h4>Capturable <code>IO</code></h4>
             <iframe
               class="playground"
-              src="https://artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Awarn%20%22That's%20no%20moon.%22%0A%0A(1..5).each%20do%20%7Cpilot%7C%0A%20%20print%20%22Red%20%23%7Bpilot%7D%20standing%20by%20...%22%2C%20%22%5Cn%22%0Aend%0A%0Aputs%20''%2C%20'Lock%20S-foils%20in%20attack%20position.'"
+              src="https://rubyconf2019.artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Awarn%20%22That's%20no%20moon.%22%0A%0A(1..5).each%20do%20%7Cpilot%7C%0A%20%20print%20%22Red%20%23%7Bpilot%7D%20standing%20by%20...%22%2C%20%22%5Cn%22%0Aend%0A%0Aputs%20''%2C%20'Lock%20S-foils%20in%20attack%20position.'"
             >
             </iframe>
           </section>
@@ -255,7 +255,7 @@
             <h4>Virtual <code>Kernel#require</code></h4>
             <iframe
               class="playground"
-              src="https://artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Arequire%20'json'%0A%0Ajson%20%3D%20%7B%20backend%3A%20'memory'%20%7D.to_json%0A%0Aputs%20json"
+              src="https://rubyconf2019.artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Arequire%20'json'%0A%0Ajson%20%3D%20%7B%20backend%3A%20'memory'%20%7D.to_json%0A%0Aputs%20json"
             >
             </iframe>
           </section>
@@ -271,7 +271,7 @@
             <h4>Pure Rust <code>Regexp</code></h4>
             <iframe
               class="playground"
-              src="https://artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Ahaystack%20%3D%20%3C%3C-HAYSTACK%0A%20%20%5B%20ruby_koans%20%5D%20%24%20ruby%20path_to_enlightenment.rb%0A%20%20(in%20%2FUsers%2Fperson%2Fdev%2Fruby_koans)%0A%20%20cd%20koans%0A%0A%20%20Thinking%20AboutAsserts%0A%20%20test_assert_truth%20has%20damaged%20your%20karma.%0A%0A%20%20You%20have%20not%20yet%20reached%20enlightenment%20...%0A%20%20%3Cfalse%3E%20is%20not%20true.%0AHAYSTACK%0A%0Amatch%20%3D%20%2Fruby%20(%5Ba-zA-Z0-9_%5D%2B%5C.rb)%2F.match(haystack)%0A%0Aputs%20%22To%20walk%20the%20path%2C%20run%3A%22%2C%20%22%24%20ruby%20%23%7Bmatch%5B1%5D%7D%22"
+              src="https://rubyconf2019.artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Ahaystack%20%3D%20%3C%3C-HAYSTACK%0A%20%20%5B%20ruby_koans%20%5D%20%24%20ruby%20path_to_enlightenment.rb%0A%20%20(in%20%2FUsers%2Fperson%2Fdev%2Fruby_koans)%0A%20%20cd%20koans%0A%0A%20%20Thinking%20AboutAsserts%0A%20%20test_assert_truth%20has%20damaged%20your%20karma.%0A%0A%20%20You%20have%20not%20yet%20reached%20enlightenment%20...%0A%20%20%3Cfalse%3E%20is%20not%20true.%0AHAYSTACK%0A%0Amatch%20%3D%20%2Fruby%20(%5Ba-zA-Z0-9_%5D%2B%5C.rb)%2F.match(haystack)%0A%0Aputs%20%22To%20walk%20the%20path%2C%20run%3A%22%2C%20%22%24%20ruby%20%23%7Bmatch%5B1%5D%7D%22"
             >
             </iframe>
           </section>
@@ -420,7 +420,7 @@ ubuntu@ip-172-31-21-76:~$ precise-time 50 $HOME/bin/artichoke bench_ary_sparse.r
             </a>
           </p>
           <p>
-            <a href="https://artichoke.run">🎡 artichoke.run</a>
+            <a href="https://rubyconf2019.artichoke.run">🎡 artichoke.run</a>
           </p>
           <p>
             <a
