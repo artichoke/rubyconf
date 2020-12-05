@@ -7,32 +7,18 @@ const webpack = require("webpack");
 
 const plugins = [
   new MiniCssExtractPlugin({
-    filename: "[name].[hash].css",
+    filename: "[name].[contenthash].css",
     chunkFilename: "[id].css",
   }),
   new HtmlWebPackPlugin({
     template: "index.html",
     filename: "index.html",
     chunks: ["landing"],
-    minify: {
-      collapseWhitespace: true,
-      minifyCSS: true,
-      minifyJS: true,
-      removeComments: true,
-      useShortDoctype: true,
-    },
   }),
   new HtmlWebPackPlugin({
     template: "2019/index.html",
     filename: "2019/index.html",
     chunks: ["deck.2019"],
-    minify: {
-      collapseWhitespace: true,
-      minifyCSS: true,
-      minifyJS: true,
-      removeComments: true,
-      useShortDoctype: true,
-    },
   }),
   new webpack.ProvidePlugin({
     Reveal: "reveal.js",
@@ -40,11 +26,19 @@ const plugins = [
   }),
 ];
 
-module.exports = (env, argv) => {
+module.exports = (_env, argv) => {
   let cssLoader = "style-loader";
+  let optimization = {
+    minimize: false,
+  };
   let publicPath = "/";
   if (argv.mode === "production") {
     cssLoader = MiniCssExtractPlugin.loader;
+    optimization.minimize = true;
+    optimization.minimizer = [
+      new TerserPlugin(),
+      new OptimizeCSSAssetsPlugin(),
+    ];
     publicPath = "/rubyconf/";
   }
   return {
@@ -60,11 +54,10 @@ module.exports = (env, argv) => {
       "deck.2019": path.resolve(__dirname, "src/2019/deck.js"),
     },
     output: {
-      filename: "[name].[hash].bundle.js",
+      filename: "[name].[contenthash].bundle.js",
       path: path.resolve(__dirname, "dist"),
       publicPath,
     },
-    plugins,
     module: {
       rules: [
         {
@@ -122,9 +115,7 @@ module.exports = (env, argv) => {
         },
       ],
     },
-    optimization: {
-      minimize: true,
-      minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin()],
-    },
+    plugins,
+    optimization,
   };
 };
