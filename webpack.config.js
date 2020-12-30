@@ -3,6 +3,8 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const svgToMiniDataURI = require("mini-svg-data-uri");
+
 const webpack = require("webpack");
 
 const plugins = [
@@ -70,47 +72,58 @@ module.exports = (_env, argv) => {
           use: [cssLoader, "css-loader"],
         },
         {
-          test: new RegExp(path.resolve(__dirname, "assets")),
-          use: {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-            },
+          test: /\.svg$/,
+          include: new RegExp(path.resolve(__dirname, "assets")),
+          type: "asset/resource",
+          use: "svgo-loader",
+          generator: {
+            filename: "[name][ext]",
           },
         },
         {
-          test: /\.(jpe?g|png|gif)$/,
-          exclude: new RegExp(path.resolve(__dirname, "assets")),
-          use: {
-            loader: "url-loader",
-            options: {
-              limit: 8192,
-            },
+          include: new RegExp(path.resolve(__dirname, "assets")),
+          exclude: /\.svg$/,
+          type: "asset/resource",
+          use: "image-webpack-loader",
+          generator: {
+            filename: "[name][ext]",
           },
+        },
+        {
+          test: /\.(png|jpe?g|gif)$/,
+          exclude: new RegExp(path.resolve(__dirname, "assets")),
+          type: "asset",
+          use: "image-webpack-loader",
         },
         {
           test: /\.svg$/,
-          use: ["file-loader", "svgo-loader"],
+          exclude: new RegExp(path.resolve(__dirname, "assets")),
+          type: "asset/inline",
+          use: "svgo-loader",
+          generator: {
+            dataUrl: (content) => {
+              content = content.toString();
+              return svgToMiniDataURI(content);
+            },
+          },
         },
         {
           test: /\.rb$/,
-          use: "raw-loader",
+          type: "asset/source",
         },
         {
           test: /\.md$/,
-          use: "raw-loader",
+          type: "asset/source",
         },
         {
           test: /\.txt$/,
-          use: "file-loader",
+          type: "asset/resource",
         },
         {
           test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-          use: {
-            loader: "file-loader",
-            options: {
-              outputPath: "font/",
-            },
+          type: "asset/resource",
+          generator: {
+            filename: "fonts/[contenthash].[name][ext]",
           },
         },
       ],
