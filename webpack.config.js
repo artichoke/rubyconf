@@ -7,6 +7,10 @@ const svgToMiniDataURI = require("mini-svg-data-uri");
 const webpack = require("webpack");
 
 const plugins = [
+  new webpack.ProvidePlugin({
+    Reveal: "reveal.js",
+    hljs: "highlight.js/lib/highlight",
+  }),
   new MiniCssExtractPlugin({
     filename: "[name].[contenthash].css",
     chunkFilename: "[id].css",
@@ -20,10 +24,6 @@ const plugins = [
     template: "2019/index.html",
     filename: "2019/index.html",
     chunks: ["deck.2019"],
-  }),
-  new webpack.ProvidePlugin({
-    Reveal: "reveal.js",
-    hljs: "highlight.js/lib/highlight",
   }),
 ];
 
@@ -121,7 +121,7 @@ module.exports = (_env, argv) => {
           test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
           type: "asset/resource",
           generator: {
-            filename: "fonts/[contenthash].[name][ext]",
+            filename: "font/[contenthash].[name][ext]",
           },
         },
       ],
