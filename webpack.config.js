@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const webpack = require("webpack");
 
 const plugins = [
@@ -37,7 +37,7 @@ module.exports = (_env, argv) => {
     optimization.minimize = true;
     optimization.minimizer = [
       new TerserPlugin(),
-      new OptimizeCSSAssetsPlugin(),
+      new CssMinimizerPlugin(),
     ];
     publicPath = "/rubyconf/";
   }
