@@ -13,7 +13,7 @@ const plugins = [
   }),
   new MiniCssExtractPlugin({
     filename: "[name].[contenthash].css",
-    chunkFilename: "[id].css",
+    chunkFilename: "[id].[contenthash].css",
   }),
   new HtmlWebPackPlugin({
     template: "index.html",
