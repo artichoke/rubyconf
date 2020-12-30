@@ -11,7 +11,6 @@ import RevealHighlight from "reveal.js/plugin/highlight/highlight";
 import "reveal.js/plugin/highlight/monokai.css";
 
 import "../artichoke.css";
-import "../learnxinyminutes.txt";
 
 document.addEventListener("DOMContentLoaded", () => {
   Reveal.addEventListener("ready", () => {
