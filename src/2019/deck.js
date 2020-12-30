@@ -1,5 +1,3 @@
-import $ from "jquery";
-
 import Reveal from "reveal.js";
 
 import "reveal.js/dist/reset.css";
@@ -14,9 +12,10 @@ import "../artichoke.css";
 
 document.addEventListener("DOMContentLoaded", () => {
   Reveal.addEventListener("ready", () => {
-    // event.currentSlide, event.indexh, event.indexv
-    $("div.artichoke-chrome").appendTo("div.reveal");
-    $("div.artichoke-chrome").show();
+    const revealContainer = document.getElementById("js-reveal-container");
+    const artichokeChrome = document.getElementById("js-artichoke-chrome");
+    revealContainer.appendChild(artichokeChrome);
+    artichokeChrome.style.display = "block";
 
     window.twttr = ((d, s, id) => {
       const fjs = d.getElementsByTagName(s)[0];

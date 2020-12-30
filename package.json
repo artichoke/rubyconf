@@ -18,7 +18,6 @@
   ],
   "repository": "github:artichoke/rubyconf",
   "dependencies": {
-    "jquery": "^3.5.1",
     "reveal.js": "^4.1.0"
   },
   "devDependencies": {
