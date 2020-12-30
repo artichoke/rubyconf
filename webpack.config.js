@@ -43,12 +43,6 @@ module.exports = (_env, argv) => {
   }
   return {
     context: path.resolve(__dirname, "src"),
-    resolve: {
-      alias: {
-        assets: path.resolve(__dirname, "assets"),
-        slides: path.resolve(__dirname, "slides"),
-      },
-    },
     entry: {
       landing: path.resolve(__dirname, "src/landing.js"),
       "deck.2019": path.resolve(__dirname, "src/2019/deck.js"),
@@ -71,7 +65,7 @@ module.exports = (_env, argv) => {
         },
         {
           test: /\.svg$/,
-          include: new RegExp(path.resolve(__dirname, "assets")),
+          include: new RegExp(path.resolve(__dirname, "src", "assets")),
           type: "asset/resource",
           use: "svgo-loader",
           generator: {
@@ -79,7 +73,7 @@ module.exports = (_env, argv) => {
           },
         },
         {
-          include: new RegExp(path.resolve(__dirname, "assets")),
+          include: new RegExp(path.resolve(__dirname, "src", "assets")),
           exclude: /\.svg$/,
           type: "asset/resource",
           use: "image-webpack-loader",
@@ -89,13 +83,13 @@ module.exports = (_env, argv) => {
         },
         {
           test: /\.(png|jpe?g|gif)$/,
-          exclude: new RegExp(path.resolve(__dirname, "assets")),
+          exclude: new RegExp(path.resolve(__dirname, "src", "assets")),
           type: "asset",
           use: "image-webpack-loader",
         },
         {
           test: /\.svg$/,
-          exclude: new RegExp(path.resolve(__dirname, "assets")),
+          exclude: new RegExp(path.resolve(__dirname, "src", "assets")),
           type: "asset/inline",
           use: "svgo-loader",
           generator: {
