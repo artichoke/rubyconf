@@ -1,6 +1,5 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const svgToMiniDataURI = require("mini-svg-data-uri");
@@ -32,15 +31,14 @@ module.exports = (_env, argv) => {
   let cssLoader = "style-loader";
   let optimization = {
     minimize: false,
+    chunkIds: "deterministic",
+    moduleIds: "deterministic",
   };
   let publicPath = "/";
   if (argv.mode === "production") {
     cssLoader = MiniCssExtractPlugin.loader;
     optimization.minimize = true;
-    optimization.minimizer = [
-      new TerserPlugin(),
-      new CssMinimizerPlugin(),
-    ];
+    optimization.minimizer = ["...", new CssMinimizerPlugin()];
     publicPath = "/rubyconf/";
   }
   return {
