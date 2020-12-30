@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const revealContainer = document.getElementById("js-reveal-container");
     const artichokeChrome = document.getElementById("js-artichoke-chrome");
     revealContainer.appendChild(artichokeChrome);
-    artichokeChrome.style.display = "block";
+    artichokeChrome.classList.add("is-visible");
 
     window.twttr = ((d, s, id) => {
       const fjs = d.getElementsByTagName(s)[0];
