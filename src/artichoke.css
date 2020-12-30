@@ -156,3 +156,11 @@ button:active {
   height: 400px;
   width: 80%;
 }
+
+.artichoke-footer-logo {
+  display: "none";
+}
+
+.artichoke-footer-logo.is-visible {
+  display: "block";
+}
