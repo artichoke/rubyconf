@@ -1,14 +1,19 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const svgToMiniDataURI = require("mini-svg-data-uri");
+
 const webpack = require("webpack");
 
 const plugins = [
+  new webpack.ProvidePlugin({
+    Reveal: "reveal.js",
+    hljs: "highlight.js/lib/highlight",
+  }),
   new MiniCssExtractPlugin({
     filename: "[name].[contenthash].css",
-    chunkFilename: "[id].css",
+    chunkFilename: "[id].[contenthash].css",
   }),
   new HtmlWebPackPlugin({
     template: "index.html",
@@ -20,35 +25,24 @@ const plugins = [
     filename: "2019/index.html",
     chunks: ["deck.2019"],
   }),
-  new webpack.ProvidePlugin({
-    Reveal: "reveal.js",
-    hljs: "highlight.js/lib/highlight",
-  }),
 ];
 
 module.exports = (_env, argv) => {
   let cssLoader = "style-loader";
   let optimization = {
     minimize: false,
+    chunkIds: "deterministic",
+    moduleIds: "deterministic",
   };
   let publicPath = "/";
   if (argv.mode === "production") {
     cssLoader = MiniCssExtractPlugin.loader;
     optimization.minimize = true;
-    optimization.minimizer = [
-      new TerserPlugin(),
-      new OptimizeCSSAssetsPlugin(),
-    ];
+    optimization.minimizer = ["...", new CssMinimizerPlugin()];
     publicPath = "/rubyconf/";
   }
   return {
     context: path.resolve(__dirname, "src"),
-    resolve: {
-      alias: {
-        assets: path.resolve(__dirname, "assets"),
-        slides: path.resolve(__dirname, "slides"),
-      },
-    },
     entry: {
       landing: path.resolve(__dirname, "src/landing.js"),
       "deck.2019": path.resolve(__dirname, "src/2019/deck.js"),
@@ -70,52 +64,68 @@ module.exports = (_env, argv) => {
           use: [cssLoader, "css-loader"],
         },
         {
-          test: new RegExp(path.resolve(__dirname, "assets")),
-          use: {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-            },
+          test: /\.svg$/,
+          include: new RegExp(path.resolve(__dirname, "src", "assets")),
+          type: "asset/resource",
+          use: "svgo-loader",
+          generator: {
+            filename: "[name][ext]",
           },
         },
         {
-          test: /\.(jpe?g|png|gif)$/,
-          exclude: new RegExp(path.resolve(__dirname, "assets")),
-          use: {
-            loader: "url-loader",
-            options: {
-              limit: 8192,
-            },
+          include: new RegExp(path.resolve(__dirname, "src", "assets")),
+          exclude: /\.svg$/,
+          type: "asset/resource",
+          use: "image-webpack-loader",
+          generator: {
+            filename: "[name][ext]",
           },
+        },
+        {
+          test: /\.(png|jpe?g|gif)$/,
+          exclude: new RegExp(path.resolve(__dirname, "src", "assets")),
+          type: "asset",
+          use: "image-webpack-loader",
         },
         {
           test: /\.svg$/,
-          use: ["file-loader", "svgo-loader"],
+          exclude: new RegExp(path.resolve(__dirname, "src", "assets")),
+          type: "asset/inline",
+          use: "svgo-loader",
+          generator: {
+            dataUrl: (content) => {
+              content = content.toString();
+              return svgToMiniDataURI(content);
+            },
+          },
         },
         {
           test: /\.rb$/,
-          use: "raw-loader",
+          type: "asset/source",
         },
         {
           test: /\.md$/,
-          use: "raw-loader",
+          type: "asset/source",
         },
         {
           test: /\.txt$/,
-          use: "file-loader",
+          type: "asset/resource",
         },
         {
           test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-          use: {
-            loader: "file-loader",
-            options: {
-              outputPath: "font/",
-            },
+          type: "asset/resource",
+          generator: {
+            filename: "font/[contenthash].[name][ext]",
           },
         },
       ],
     },
     plugins,
     optimization,
+    devServer: {
+      compress: true,
+      host: "127.0.0.1",
+      port: 9000,
+    },
   };
 };

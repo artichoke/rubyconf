@@ -18,7 +18,6 @@
   ],
   "repository": "github:artichoke/rubyconf",
   "dependencies": {
-    "jquery": "^3.5.1",
     "reveal.js": "^4.1.0"
   },
   "devDependencies": {
@@ -26,20 +25,18 @@
     "@babel/preset-env": "^7.12.11",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
-    "file-loader": "^6.2.0",
+    "css-minimizer-webpack-plugin": "^1.1.5",
     "html-loader": "^1.3.2",
-    "html-webpack-plugin": "^4.5.0",
+    "html-webpack-plugin": "^5.0.0-beta.1",
+    "image-webpack-loader": "^7.0.1",
     "mini-css-extract-plugin": "^1.3.3",
-    "optimize-css-assets-webpack-plugin": "^5.0.4",
-    "raw-loader": "^4.0.2",
+    "mini-svg-data-uri": "^1.2.3",
     "style-loader": "^2.0.0",
     "svgo": "^1.3.0",
     "svgo-loader": "^2.2.1",
-    "terser-webpack-plugin": "^4.2.3",
-    "url-loader": "^4.1.1",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.1"
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.0",
+    "webpack-dev-server": "^4.0.0-beta.0"
   },
   "babel": {
     "presets": [
@@ -62,9 +59,9 @@
     ]
   },
   "scripts": {
-    "build": "webpack -p --mode production",
-    "dev": "npx webpack-dev-server",
-    "dev:open": "npx webpack-dev-server --open",
+    "build": "webpack --mode production",
+    "dev": "webpack serve --mode development",
+    "dev:open": "webpack serve --mode development --open",
     "fmt": "npx prettier --write '**/*'",
     "lint": "npx eslint .",
     "lint:fix": "npx eslint --fix ."
