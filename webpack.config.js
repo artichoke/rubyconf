@@ -55,11 +55,6 @@ module.exports = (_env, argv) => {
     module: {
       rules: [
         {
-          test: /\.jsx?$/,
-          exclude: /node_modules/,
-          use: "babel-loader",
-        },
-        {
           test: /\.css$/,
           use: [cssLoader, "css-loader"],
         },
