@@ -65,15 +65,15 @@ module.exports = (_env, argv) => {
         },
         {
           test: /\.svg$/,
-          include: new RegExp(path.resolve(__dirname, "src", "assets")),
+          include: path.resolve(__dirname, "src", "assets"),
           type: "asset/resource",
-          use: "svgo-loader",
+          use: "@hyperbola/svgo-loader",
           generator: {
             filename: "[name][ext]",
           },
         },
         {
-          include: new RegExp(path.resolve(__dirname, "src", "assets")),
+          include: path.resolve(__dirname, "src", "assets"),
           exclude: /\.svg$/,
           type: "asset/resource",
           generator: {
@@ -82,14 +82,14 @@ module.exports = (_env, argv) => {
         },
         {
           test: /\.(png|jpe?g|gif)$/,
-          exclude: new RegExp(path.resolve(__dirname, "src", "assets")),
+          exclude: path.resolve(__dirname, "src", "assets"),
           type: "asset",
         },
         {
           test: /\.svg$/,
-          exclude: new RegExp(path.resolve(__dirname, "src", "assets")),
+          exclude: path.resolve(__dirname, "src", "assets"),
           type: "asset",
-          use: "svgo-loader",
+          use: "@hyperbola/svgo-loader",
           generator: {
             dataUrl: (content) => {
               content = content.toString();
