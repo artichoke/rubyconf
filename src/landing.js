@@ -2,8 +2,6 @@ import "reveal.js/dist/reset.css";
 import "reveal.js/dist/reveal.css";
 import "reveal.js/dist/theme/white.css";
 
-import "./artichoke.css";
-
 // Favicons
 import "./assets/favicons/android-chrome-192x192.png";
 import "./assets/favicons/android-chrome-512x512.png";

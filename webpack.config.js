@@ -55,8 +55,8 @@ module.exports = (_env, argv) => {
     module: {
       rules: [
         {
-          test: /\.css$/,
-          use: [cssLoader, "css-loader"],
+          test: /\.s?css$/,
+          use: [cssLoader, "css-loader", "sass-loader"],
         },
         {
           test: /\.svg$/,
