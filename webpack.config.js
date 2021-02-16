@@ -2,9 +2,13 @@ const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const posthtml = require("posthtml");
+const posthtmlInclude = require("posthtml-include");
 const svgToMiniDataURI = require("mini-svg-data-uri");
 
 const webpack = require("webpack");
+
+const root = path.resolve(__dirname);
 
 const plugins = [
   new webpack.ProvidePlugin({
@@ -93,11 +97,40 @@ module.exports = (_env, argv) => {
           },
         },
         {
-          test: /\.rb$/,
-          type: "asset/source",
+          test: /\.html$/,
+          use: {
+            loader: "html-loader",
+            options: {
+              esModule: false,
+              sources: {
+                list: [
+                  "...",
+                  {
+                    tag: "iframe",
+                    attribute: "src",
+                    type: "src",
+                  },
+                ],
+              },
+              preprocessor: (content, loaderContext) => {
+                let result;
+
+                try {
+                  result = posthtml()
+                    .use(posthtmlInclude({ root }))
+                    .process(content, { sync: true });
+                } catch (error) {
+                  loaderContext.emitError(error);
+                  return content;
+                }
+
+                return result.html;
+              },
+            },
+          },
         },
         {
-          test: /\.md$/,
+          test: /\.rb$/,
           type: "asset/source",
         },
         {
