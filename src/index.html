@@ -4,21 +4,38 @@
     <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta property="og:title" content="Artichoke RubyConf" />
-    <meta property="og:site_name" content="artichoke.github.io" />
-    <meta property="og:url" content="https://artichoke.github.io/rubyconf/" />
-    <meta property="og:description" content="Artichoke Ruby Talk Directory" />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:image"
-      content="https://artichoke.github.io/rubyconf/artichoke-logo.png"
-    />
-    <title>Artichoke RubyConf</title>
+    <meta name="description" content="Artichoke RubyConf talk index" />
+    <meta name="author" content="Ryan Lopopolo" />
 
-    <%= require('html-loader!./partials/favicons.html') %> <%=
-    require('html-loader!./partials/google-analytics.html') %>
+    <title>Artichoke RubyConf Talks</title>
+
+    <link rel="canonical" href="https://artichoke.github.io/rubyconf/" />
+
+    <!-- Favicons -->
+    <include src="src/partials/favicons.html"></include>
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@artichokeruby" />
+    <meta name="twitter:creator" content="@artichokeruby" />
+    <meta name="twitter:title" content="Artichoke Ruby" />
+    <meta name="twitter:description" content="Artichoke RubyConf talks" />
+    <meta name="twitter:image" content="artichoke-social-logo.png" />
+
+    <!-- Facebook Open Graph metadata -->
+    <meta property="og:url" content="https://artichoke.github.io/rubyconf/" />
+    <meta property="og:site_name" content="artichokeruby.org" />
+    <meta property="og:title" content="Artichoke RubyConf Talks" />
+    <meta property="og:description" content="Artichoke RubyConf talks" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="artichoke-social-logo.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="800" />
+
+    <include src="src/partials/google-analytics.html"></include>
   </head>
   <body style="height: 100vh">
     <div class="reveal center">
@@ -30,7 +47,7 @@
             margin-top: 20px;
             display: block;
           "
-          src="https://www.artichokeruby.org/artichoke-logo.svg"
+          src="artichoke-logo.svg"
           height="300"
           width="300"
           alt="Artichoke Ruby Logo"

@@ -2,18 +2,8 @@ import "reveal.js/dist/reset.css";
 import "reveal.js/dist/reveal.css";
 import "reveal.js/dist/theme/white.css";
 
-// Favicons
-import "./assets/favicons/android-chrome-192x192.png";
-import "./assets/favicons/android-chrome-512x512.png";
-import "./assets/favicons/apple-touch-icon.png";
-import "./assets/favicons/browserconfig.xml";
-import "./assets/favicons/favicon-16x16.png";
-import "./assets/favicons/favicon-32x32.png";
-import "./assets/favicons/favicon.ico";
-import "./assets/favicons/mstile-150x150.png";
-import "./assets/favicons/safari-pinned-tab.svg";
-import "./assets/favicons/site.webmanifest";
-
-// OpenGraph icons
+// Assets with well-known filenames
 import "./assets/artichoke-logo.png";
 import "./assets/artichoke-logo.svg";
+import "./assets/artichoke-logo-transparent.png";
+import "./assets/artichoke-social-logo.png";
