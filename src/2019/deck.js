@@ -8,7 +8,7 @@ import RevealMarkdown from "reveal.js/plugin/markdown/markdown";
 import RevealHighlight from "reveal.js/plugin/highlight/highlight";
 import "reveal.js/plugin/highlight/monokai.css";
 
-import "../artichoke.css";
+import "./deck.scss";
 
 document.addEventListener("DOMContentLoaded", () => {
   Reveal.addEventListener("ready", () => {
