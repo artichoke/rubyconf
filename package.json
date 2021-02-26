@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@hyperbola/svgo-loader": "^0.2.1",
-    "css-loader": "^5.0.2",
+    "css-loader": "^5.1.0",
     "css-minimizer-webpack-plugin": "^1.2.0",
     "html-loader": "^2.1.1",
     "html-webpack-plugin": "^5.2.0",
