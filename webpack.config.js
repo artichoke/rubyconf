@@ -2,13 +2,9 @@ const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const posthtml = require("posthtml");
-const posthtmlInclude = require("posthtml-include");
 const svgToMiniDataURI = require("mini-svg-data-uri");
 
 const webpack = require("webpack");
-
-const root = path.resolve(__dirname);
 
 const plugins = [
   new webpack.ProvidePlugin({
@@ -64,7 +60,14 @@ module.exports = (_env, argv) => {
         },
         {
           test: /\.svg$/,
-          include: path.resolve(__dirname, "src", "assets"),
+          include: [
+            path.resolve(__dirname, "node_modules", "@artichokeruby/logo/img"),
+            path.resolve(
+              __dirname,
+              "node_modules",
+              "@artichokeruby/logo/favicons"
+            ),
+          ],
           type: "asset/resource",
           use: "@hyperbola/svgo-loader",
           generator: {
@@ -72,7 +75,14 @@ module.exports = (_env, argv) => {
           },
         },
         {
-          include: path.resolve(__dirname, "src", "assets"),
+          include: [
+            path.resolve(__dirname, "node_modules", "@artichokeruby/logo/img"),
+            path.resolve(
+              __dirname,
+              "node_modules",
+              "@artichokeruby/logo/favicons"
+            ),
+          ],
           exclude: /\.svg$/,
           type: "asset/resource",
           generator: {
@@ -80,13 +90,15 @@ module.exports = (_env, argv) => {
           },
         },
         {
-          test: /\.(png|jpe?g|gif)$/,
-          exclude: path.resolve(__dirname, "src", "assets"),
-          type: "asset",
-        },
-        {
           test: /\.svg$/,
-          exclude: path.resolve(__dirname, "src", "assets"),
+          exclude: [
+            path.resolve(__dirname, "node_modules", "@artichokeruby/logo/img"),
+            path.resolve(
+              __dirname,
+              "node_modules",
+              "@artichokeruby/logo/favicons"
+            ),
+          ],
           type: "asset",
           use: "@hyperbola/svgo-loader",
           generator: {
@@ -97,36 +109,22 @@ module.exports = (_env, argv) => {
           },
         },
         {
+          test: /\.(png|jpe?g|gif)$/,
+          include: path.resolve(
+            __dirname,
+            "node_modules",
+            "@artichokeruby/logo/optimized"
+          ),
+          type: "asset",
+        },
+        {
           test: /\.html$/,
-          use: {
-            loader: "html-loader",
-            options: {
-              sources: {
-                list: [
-                  "...",
-                  {
-                    tag: "iframe",
-                    attribute: "src",
-                    type: "src",
-                  },
-                ],
-              },
-              preprocessor: (content, loaderContext) => {
-                let result;
-
-                try {
-                  result = posthtml()
-                    .use(posthtmlInclude({ root }))
-                    .process(content, { sync: true });
-                } catch (error) {
-                  loaderContext.emitError(error);
-                  return content;
-                }
-
-                return result.html;
-              },
-            },
-          },
+          include: path.resolve(__dirname, "src", "partials"),
+          use: "html-loader",
+        },
+        {
+          test: /\.md$/,
+          type: "asset/source",
         },
         {
           test: /\.rb$/,
