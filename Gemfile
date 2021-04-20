@@ -2,4 +2,4 @@
 
 source 'https://rubygems.org'
 
-gem 'rubocop', '~> 1.12', require: false
+gem 'rubocop', '~> 1.13', require: false
