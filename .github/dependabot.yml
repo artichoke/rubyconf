@@ -1,0 +1,25 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  assignees:
+  - lopopolo
+  labels:
+  - A-deps
+  ignore:
+  - dependency-name: highlight.js
+    versions:
+    - "> 10.0.2"
+    - "< 11"
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  assignees:
+  - lopopolo
+  labels:
+  - A-deps
