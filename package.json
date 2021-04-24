@@ -56,7 +56,7 @@
     "build": "webpack --mode production",
     "dev": "webpack serve --mode development",
     "dev:open": "webpack serve --mode development --open",
-    "fmt": "npx prettier --write '**/*'",
+    "fmt": "npx prettier --write \"**/*\"",
     "lint": "npx eslint .",
     "lint:fix": "npx eslint --fix ."
   }
