@@ -18,10 +18,10 @@
   ],
   "repository": "github:artichoke/rubyconf",
   "dependencies": {
+    "@artichokeruby/logo": "^0.10.0",
     "reveal.js": "^4.1.3"
   },
   "devDependencies": {
-    "@artichokeruby/logo": "^0.10.0",
     "@hyperbola/svgo-loader": "^0.2.2",
     "css-loader": "^6.2.0",
     "css-minimizer-webpack-plugin": "^3.0.2",
