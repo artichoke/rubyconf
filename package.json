@@ -30,7 +30,7 @@
     "mini-css-extract-plugin": "^2.3.0",
     "mini-svg-data-uri": "^1.4.3",
     "sass": "^1.43.4",
-    "sass-loader": "^12.1.0",
+    "sass-loader": "^12.3.0",
     "style-loader": "^3.3.1",
     "svgo": "^2.7.0",
     "webpack": "^5.61.0",
