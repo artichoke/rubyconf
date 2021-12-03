@@ -4,9 +4,8 @@ import "reveal.js/dist/reset.css";
 import "reveal.js/dist/reveal.css";
 import "reveal.js/dist/theme/white.css";
 
-import RevealMarkdown from "reveal.js/plugin/markdown/markdown";
-import RevealHighlight from "reveal.js/plugin/highlight/highlight";
-import "reveal.js/plugin/highlight/monokai.css";
+// install snippets styles
+import "highlight.js/styles/monokai.css";
 
 import "./deck.scss";
 
@@ -32,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return t;
     })(document, "script", "twitter-wjs");
   });
+
   Reveal.initialize({
     width: 960,
     controls: false,
@@ -42,6 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
     overview: true,
     transition: "slide",
     transitionSpeed: "default",
-    plugins: [RevealMarkdown, RevealHighlight],
+    plugins: [],
   });
 });
