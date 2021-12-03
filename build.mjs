@@ -69,7 +69,7 @@ const includeMarkdown = (source) => {
   const filePath = path.join(__dirname, "src", source);
   const content = readFileSync(filePath);
   return marked(content.toString());
-}
+};
 
 const esbuildSassPlugin = {
   name: "sass",
@@ -81,7 +81,10 @@ const esbuildSassPlugin = {
       };
     });
     build.onLoad({ filter: /.*/, namespace: "sass" }, (args) => {
-      let compiled = sass.renderSync({ file: args.path, includePaths: [path.join(__dirname, "node_modules")], });
+      let compiled = sass.renderSync({
+        file: args.path,
+        includePaths: [path.join(__dirname, "node_modules")],
+      });
       return {
         contents: compiled.css.toString(),
         loader: "css",
@@ -147,7 +150,10 @@ const build = async () => {
     deck2019 = minifyHtml.minify(deck2019, cfg);
   }
 
-  await fs.writeFile(path.join(__dirname, "dist", "2019", "index.html"), deck2019);
+  await fs.writeFile(
+    path.join(__dirname, "dist", "2019", "index.html"),
+    deck2019
+  );
 
   await esbuild.build({
     entryPoints: {
