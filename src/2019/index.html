@@ -12,9 +12,10 @@
     <title>RubyConf 2019: Artichoke is a Ruby Made with Rust 💎🦀</title>
 
     <link rel="canonical" href="https://artichoke.github.io/rubyconf/2019/" />
+    <link rel="stylesheet" href="../deck2019.bundle.css" />
 
     <!-- Favicons -->
-    <%= require("../partials/favicons.html").default %>
+    <%~ includeFile("partials/favicons.html") %>
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -44,15 +45,13 @@
     <meta property="og:image:width" content="1600" />
     <meta property="og:image:height" content="800" />
 
-    <%= require("../partials/google-analytics.html").default %>
+    <%~ includeFile("partials/google-analytics.html") %>
   </head>
   <body>
     <div id="js-reveal-container" class="reveal">
       <div class="slides">
-        <section data-markdown>
-          <textarea data-template>
-            <%= require("./slides/title.md") %>
-          </textarea>
+        <section>
+          <%~ it.includeMarkdown("2019/slides/title.md") %>
         </section>
 
         <section>
@@ -83,7 +82,7 @@
             <a href="https://github.com/artichoke">
               <img
                 class="github-logo"
-                src="<%= require('@artichokeruby/logo/social/github-logo.svg') %>"
+                src="../social/github-logo.svg"
                 alt="GitHub"
               />
               github.com/artichoke
@@ -109,68 +108,41 @@
             </a>
           </p>
         </section>
-        <section data-markdown>
-          <textarea data-template>
-            <%= require("./slides/section-goals.md") %>
-          </textarea>
-        </section>
-        <section data-markdown>
-          <textarea data-template>
-            <%= require("./slides/goals-wasm-eli5.md") %>
-          </textarea>
-        </section>
-        <section data-markdown>
-          <textarea data-template>
-            <%= require("./slides/goals-untrusted-code.md") %>
-          </textarea>
-        </section>
-        <section data-markdown>
-          <textarea data-template>
-            <%= require("./slides/goals-code-execution-aas.md") %>
-          </textarea>
+        <section>
+          <%~ it.includeMarkdown("2019/slides/section-goals.md") %>
         </section>
         <section>
-          <section data-markdown>
-            <textarea data-template>
-            <%= require("./slides/goals-single-binary-app.md") %>
-          </textarea
-            >
-          </section>
-          <section data-markdown>
-            <textarea data-template>
-            <%= require("./slides/goals-single-binary-app-web.md") %>
-          </textarea
-            >
-          </section>
-          <section data-markdown>
-            <textarea data-template>
-            <%= require("./slides/goals-single-binary-app-footprint.md") %>
-          </textarea
-            >
-          </section>
-        </section>
-        <section data-markdown>
-          <textarea data-template>
-            <%= require("./slides/section-goals.md") %>
-          </textarea>
-        </section>
-        <section data-markdown>
-          <textarea data-template>
-            <%= require("./slides/section-build-with-rust.md") %>
-          </textarea>
+          <%~ it.includeMarkdown("2019/slides/goals-wasm-eli5.md") %>
         </section>
         <section>
-          <section data-markdown>
-            <textarea data-template>
-            <%= require("./slides/build-with-rust-goals-wasm-compilation.md") %>
-          </textarea
-            >
+          <%~ it.includeMarkdown("2019/slides/goals-untrusted-code.md") %>
+        </section>
+        <section>
+          <%~ it.includeMarkdown("2019/slides/goals-code-execution-aas.md") %>
+        </section>
+        <section>
+          <section>
+            <%~ it.includeMarkdown("2019/slides/goals-single-binary-app.md") %>
           </section>
-          <section data-markdown>
-            <textarea data-template>
-            <%= require("./slides/build-with-rust-goals-build.md") %>
-          </textarea
-            >
+          <section>
+            <%~ it.includeMarkdown("2019/slides/goals-single-binary-app-web.md") %>
+          </section>
+          <section>
+            <%~ it.includeMarkdown("2019/slides/goals-single-binary-app-footprint.md") %>
+          </section>
+        </section>
+        <section>
+          <%~ it.includeMarkdown("2019/slides/section-goals.md") %>
+        </section>
+        <section>
+          <%~ it.includeMarkdown("2019/slides/section-build-with-rust.md") %>
+        </section>
+        <section>
+          <section>
+            <%~ it.includeMarkdown("2019/slides/build-with-rust-goals-wasm-compilation.md") %>
+          </section>
+          <section>
+            <%~ it.includeMarkdown("2019/slides/build-with-rust-goals-build.md") %>
           </section>
         </section>
         <section>
@@ -181,39 +153,24 @@
           ></iframe>
         </section>
         <section>
-          <section data-markdown>
-            <textarea data-template>
-            <%= require("./slides/build-with-rust-goals-single-binary-from-scratch.md") %>
-          </textarea
-            >
+          <section>
+            <%~ it.includeMarkdown("2019/slides/build-with-rust-goals-single-binary-from-scratch.md") %>
           </section>
-          <section data-markdown>
-            <textarea data-template>
-            <%= require("./slides/build-with-rust-goals-single-binary-deps.md") %>
-          </textarea
-            >
+          <section>
+            <%~ it.includeMarkdown("2019/slides/build-with-rust-goals-single-binary-deps.md") %>
           </section>
-          <section data-markdown>
-            <textarea data-template>
-            <%= require("./slides/build-with-rust-goals-single-binary-musl.md") %>
-          </textarea
-            >
+          <section>
+            <%~ it.includeMarkdown("2019/slides/build-with-rust-goals-single-binary-musl.md") %>
           </section>
         </section>
-        <section data-markdown>
-          <textarea data-template>
-            <%= require("./slides/transition-rust-to-core.md") %>
-          </textarea>
+        <section>
+          <%~ it.includeMarkdown("2019/slides/transition-rust-to-core.md") %>
         </section>
-        <section data-markdown>
-          <textarea data-template>
-            <%= require("./slides/ruby-is-core.md") %>
-          </textarea>
+        <section>
+          <%~ it.includeMarkdown("2019/slides/ruby-is-core.md") %>
         </section>
-        <section data-markdown>
-          <textarea data-template>
-            <%= require("./slides/section-multiple-backend.md") %>
-          </textarea>
+        <section>
+          <%~ it.includeMarkdown("2019/slides/section-multiple-backend.md") %>
         </section>
         <section>
           <section>
@@ -224,23 +181,14 @@
             >
             </iframe>
           </section>
-          <section data-markdown>
-            <textarea data-template>
-            <%= require("./slides/multiple-backend-env.md") %>
-          </textarea
-            >
+          <section>
+            <%~ it.includeMarkdown("2019/slides/multiple-backend-env.md") %>
           </section>
-          <section data-markdown>
-            <textarea data-template>
-            <%= require("./slides/multiple-backend-env-goals-wasm.md") %>
-          </textarea
-            >
+          <section>
+            <%~ it.includeMarkdown("2019/slides/multiple-backend-env-goals-wasm.md") %>
           </section>
-          <section data-markdown>
-            <textarea data-template>
-            <%= require("./slides/multiple-backend-env-goals-untrusted.md") %>
-          </textarea
-            >
+          <section>
+            <%~ it.includeMarkdown("2019/slides/multiple-backend-env-goals-untrusted.md") %>
           </section>
         </section>
         <section>
@@ -252,23 +200,14 @@
             >
             </iframe>
           </section>
-          <section data-markdown>
-            <textarea data-template>
-            <%= require("./slides/multiple-backend-io.md") %>
-          </textarea
-            >
+          <section>
+            <%~ it.includeMarkdown("2019/slides/multiple-backend-io.md") %>
           </section>
-          <section data-markdown>
-            <textarea data-template>
-            <%= require("./slides/multiple-backend-io-goals-wasm.md") %>
-          </textarea
-            >
+          <section>
+            <%~ it.includeMarkdown("2019/slides/multiple-backend-io-goals-wasm.md") %>
           </section>
-          <section data-markdown>
-            <textarea data-template>
-            <%= require("./slides/multiple-backend-io-goals-untrusted.md") %>
-          </textarea
-            >
+          <section>
+            <%~ it.includeMarkdown("2019/slides/multiple-backend-io-goals-untrusted.md") %>
           </section>
         </section>
         <section>
@@ -280,11 +219,8 @@
             >
             </iframe>
           </section>
-          <section data-markdown>
-            <textarea data-template>
-            <%= require("./slides/multiple-backend-file.md") %>
-          </textarea
-            >
+          <section>
+            <%~ it.includeMarkdown("2019/slides/multiple-backend-file.md") %>
           </section>
         </section>
         <section>
@@ -296,28 +232,21 @@
             >
             </iframe>
           </section>
-          <section data-markdown>
-            <textarea data-template>
-            <%= require("./slides/multiple-backend-regexp.md") %>
-          </textarea
-            >
+          <section>
+            <%~ it.includeMarkdown("2019/slides/multiple-backend-regexp.md") %>
           </section>
         </section>
-        <section data-markdown>
-          <textarea data-template>
-            <%= require("./slides/transition-core-to-performance.md") %>
-          </textarea>
+        <section>
+          <%~ it.includeMarkdown("2019/slides/transition-core-to-performance.md") %>
         </section>
         <section>
-          <section data-markdown>
-            <textarea data-template>
-              <%= require("./slides/bench-string-scan-needle.md") %>
-            </textarea>
+          <section>
+            <%~ it.includeMarkdown("2019/slides/bench-string-scan-needle.md") %>
           </section>
           <section>
             <h3><code>String#scan</code></h3>
             <iframe
-              src="<%= require('../learnxinyminutes-truncated.txt') %>"
+              src="../learnxinyminutes-truncated.txt"
               class="playground"
             >
             </iframe>
@@ -352,15 +281,13 @@ ubuntu@ip-172-31-21-76:~$ env FIXTURE=learnxinyminutes.txt precise-time 50 $HOME
           </div>
         </section>
         <section>
-          <section data-markdown>
-            <textarea data-template>
-              <%= require("./slides/bench-string-scan-needle-re.md") %>
-            </textarea>
+          <section>
+            <%~ it.includeMarkdown("2019/slides/bench-string-scan-needle-re.md") %>
           </section>
           <section>
             <h3><code>String#scan</code></h3>
             <iframe
-              src="<%= require('../learnxinyminutes-truncated.txt') %>"
+              src="../learnxinyminutes-truncated.txt"
               class="playground"
             >
             </iframe>
@@ -394,10 +321,8 @@ ubuntu@ip-172-31-21-76:~$ env FIXTURE=learnxinyminutes.txt precise-time 50 $HOME
             </div>
           </div>
         </section>
-        <section data-markdown>
-          <textarea data-template>
-            <%= require("./slides/bench-ary-sparse.md") %>
-          </textarea>
+        <section>
+          <%~ it.includeMarkdown("2019/slides/bench-ary-sparse.md") %>
         </section>
         <section>
           <h3>Sparse Array Allocation</h3>
@@ -423,10 +348,8 @@ ubuntu@ip-172-31-21-76:~$ precise-time 50 $HOME/bin/artichoke bench_ary_sparse.r
             </div>
           </div>
         </section>
-        <section data-markdown>
-          <textarea data-template>
-            <%= require("./slides/contributing-upcoming-work.md") %>
-          </textarea>
+        <section>
+          <%~ it.includeMarkdown("2019/slides/contributing-upcoming-work.md") %>
         </section>
         <section>
           <h3>Contributing</h3>
@@ -434,7 +357,7 @@ ubuntu@ip-172-31-21-76:~$ precise-time 50 $HOME/bin/artichoke bench_ary_sparse.r
             <a href="https://github.com/artichoke">
               <img
                 class="github-logo"
-                src="<% require('@artichokeruby/logo/social/github-logo.svg') %>"
+                src="../social/github-logo.svg"
                 alt="GitHub"
               />
               github.com/artichoke
@@ -480,10 +403,11 @@ ubuntu@ip-172-31-21-76:~$ precise-time 50 $HOME/bin/artichoke bench_ary_sparse.r
       <div class="footer-logo">
         <a href="https://github.com/artichoke/artichoke" alt="Artichoke Ruby">
           <img
-            src="<%= require('@artichokeruby/logo/optimized/artichoke-logo.svg') %>"
+            src="../artichoke-logo.svg"
           />
         </a>
       </div>
     </div>
+    <script type="module" src="../deck2019.bundle.js"></script>
   </body>
 </html>
