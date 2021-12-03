@@ -1,230 +1,29 @@
-<!doctype html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"/><meta name="description" content="Artichoke 2019 RubyConf Talk"/><meta name="author" content="Ryan Lopopolo"/><title>RubyConf 2019: Artichoke is a Ruby Made with Rust 💎🦀</title><link rel="canonical" href="https://artichoke.github.io/rubyconf/2019/"/><link rel="icon" href="/rubyconf/favicon-32x32.png" sizes="32x32"/><link rel="icon" href="/rubyconf/favicon-128x128.png" sizes="128x128"/><link rel="icon" href="/rubyconf/favicon-192x192.png" sizes="192x192"/><link rel="shortcut icon" sizes="196x196" href="/rubyconf/favicon-196x196.png"/><link rel="apple-touch-icon" href="/rubyconf/favicon-152x152.png" sizes="152x152"/><link rel="apple-touch-icon" href="/rubyconf/favicon-180x180.png" sizes="180x180"/><link rel="mask-icon" href="/rubyconf/safari-pinned-tab.svg" color="black"/><meta name="msapplication-tilecolor" content="#ffffff"/><meta name="msapplication-tileimage" content="/rubyconf/mstile-150x150.png"/><meta name="msapplication-config" content="/rubyconf/browserconfig.xml"/><link rel="manifest" href="/rubyconf/site.webmanifest"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:site" content="@artichokeruby"/><meta name="twitter:creator" content="@artichokeruby"/><meta name="twitter:title" content="Artichoke Ruby"/><meta name="twitter:description" content="RubyConf 2019: Artichoke is a Ruby made with Rust."/><meta name="twitter:image" content="../artichoke-social-logo.png"/><meta property="og:url" content="https://artichoke.github.io/rubyconf/2019/"/><meta property="og:site_name" content="artichokeruby.org"/><meta property="og:title" content="RubyConf 2019: Artichoke"/><meta property="og:description" content="RubyConf 2019: Artichoke is a Ruby made with Rust."/><meta property="og:type" content="website"/><meta property="og:image" content="../artichoke-social-logo.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="1600"/><meta property="og:image:height" content="800"/><script async src="https://www.googletagmanager.com/gtag/js?id=UA-158900370-3"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-158900370-3")</script><script defer="defer" src="/rubyconf/deck.2019.b8decaa5a3f32c5bcdf1.bundle.js"></script><link href="/rubyconf/deck.2019.70e4af45c3f2f32db403.css" rel="stylesheet"></head><body><div id="js-reveal-container" class="reveal"><div class="slides"><section data-markdown><textarea data-template>
-            ## Artichoke is a Ruby Made with Rust
-
-💎🦀🚀
-
-[🎢 artichoke.github.io/rubyconf/2019](https://artichoke.github.io/rubyconf/2019)  
-[🎡 artichoke.run](https://artichoke.run)
-
-          </textarea></section><section><h3>Artichoke Ruby</h3><iframe class="playground" src="https://rubyconf2019.artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Arequire%20'forwardable'%0Arequire%20'json'%0A%0Aclass%20Properties%0A%20%20extend%20Forwardable%0A%20%20def_delegators%20%3A%40properties%2C%20%3A%5B%5D%2C%20%3A%5B%5D%3D%2C%20%3Ato_json%0A%0A%20%20def%20initialize(name)%0A%20%20%20%20%40name%20%3D%20name%0A%20%20%20%20%40properties%20%3D%20%7B%7D%0A%20%20end%0Aend%0A%0Aartichoke%20%3D%20Properties.new('Artichoke%20Ruby')%0Aartichoke%5B%3Alanguage%5D%20%3D%20'Ruby'%0Aartichoke%5B%3Aimplementation%5D%20%3D%20'Artichoke'%0Aartichoke%5B%3Atarget%5D%20%3D%20'wasm'%0Aartichoke%5B%3Aemoji%5D%20%3D%20'%F0%9F%92%8E'%0A%0Aserialized%20%3D%20JSON.pretty_generate(artichoke)%0A%0Aputs%20serialized%20if%20serialized%20%3D~%20%2F%F0%9F%92%8E%2F"></iframe></section><section><h3>Why Build a Ruby? 🏗💎</h3><iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="544" height="306" type="text/html" src="https://www.youtube.com/embed/qybUFnY7Y8w?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&mute=1"></iframe></section><section><h3>Contributing</h3><p><a href="https://github.com/artichoke"><img class="github-logo" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' width='43.439' height='42.366'%3e%3cdefs%3e%3cclipPath clipPathUnits='userSpaceOnUse' id='a'%3e%3cpath d='M0 551.986h530.973V0H0Z'/%3e%3c/clipPath%3e%3c/defs%3e%3cg clip-path='url(%23a)' transform='matrix(1.33333 0 0 -1.33333 -44.007 684.087)'%3e%3cpath d='M-103.315 68.52c-8.995 0-16.288-7.293-16.288-16.29 0-7.197 4.667-13.302 11.14-15.457.815-.15 1.112.354 1.112.786 0 .386-.014 1.41-.022 2.77-4.531-.984-5.487 2.184-5.487 2.184-.741 1.88-1.81 2.382-1.81 2.382-1.478 1.01.113.99.113.99 1.635-.115 2.495-1.678 2.495-1.678 1.453-2.49 3.813-1.77 4.74-1.354.149 1.053.569 1.77 1.035 2.178-3.617.41-7.42 1.809-7.42 8.05 0 1.779.635 3.233 1.677 4.372-.168.412-.727 2.068.159 4.31 0 0 1.368.439 4.48-1.67 1.299.362 2.693.543 4.078.549a15.625 15.625 0 0 0 4.078-.548c3.11 2.108 4.475 1.67 4.475 1.67.889-2.243.33-3.9.162-4.311 1.044-1.14 1.675-2.593 1.675-4.371 0-6.258-3.81-7.635-7.438-8.038.585-.503 1.106-1.497 1.106-3.017 0-2.177-.02-3.934-.02-4.468 0-.436.293-.943 1.12-.784 6.468 2.159 11.13 8.26 11.13 15.455 0 8.997-7.293 16.29-16.29 16.29' style='fill:%231b1817%3bfill-opacity:1%3bfill-rule:evenodd%3bstroke:none' transform='translate(152.608 444.545)'/%3e%3c/g%3e%3c/svg%3e" alt="GitHub"/> github.com/artichoke</a></p><p><a href="https://rubyconf2019.artichoke.run">🎡 artichoke.run</a></p><p><a class="IssueLabel" title="Call for participation: Experience needed to fix: Easy / not much." href="https://github.com/artichoke/artichoke/labels/E-easy">E-easy </a><a class="IssueLabel" title="Call for participation: Help is requested to fix this issue." href="https://github.com/artichoke/artichoke/labels/E-help-wanted">E-help-wanted</a></p></section><section data-markdown><textarea data-template>
-            ### Goals
-
-- Build for WebAssembly 🎯
-- Execute untrusted code 🔦🔍
-- Package single-binary apps 🧳
-
-          </textarea></section><section data-markdown><textarea data-template>
-            #### WebAssembly
-
-- Sandboxed by default 🏖
-- Multi-platform 👻👽👾🤖
-- Ruby in the browser 🍭
-
-          </textarea></section><section data-markdown><textarea data-template>
-            #### Untrusted Code
-
-"Code execution as a service"  
-🎲🎰
-
-          </textarea></section><section data-markdown><textarea data-template>
-            #### Why Execute Untrusted Code?
-
-- [Mozilla Firefox](https://developer.mozilla.org/en-US/docs/WebAssembly) 🔥🦊
-- [Godot scripting](https://docs.godotengine.org/en/3.1/getting_started/step_by_step/scripting.html)
-  🕹🎮
-- [Shopify Scripts](https://github.com/Shopify/shopify-scripts) 🛍🛒
-- [Redis `EVAL`](https://redis.io/commands/eval) 🧱💈
-
-          </textarea></section><section><section data-markdown><textarea data-template>
-            #### Single Binary Apps
-
-Dead simple, hermetic deployments 🍱
-
-          </textarea></section><section data-markdown><textarea data-template>
-            #### Single Binary Apps
-
-Apps are hard to package 📦  
-especially for the web 🐒
-
-          </textarea></section><section data-markdown><textarea data-template>
-            #### Single Binary Apps
-
-- Ruby, stdlib, gems load shared objects ❗️
-- Stdlib, gems, apps load Ruby code 💔
-- Apps load Ruby code, config, and assets 💥
-
-          </textarea></section></section><section data-markdown><textarea data-template>
-            ### Goals
-
-- Build for WebAssembly 🎯
-- Execute untrusted code 🔦🔍
-- Package single-binary apps 🧳
-
-          </textarea></section><section data-markdown><textarea data-template>
-            ### Artichoke 💎❤️🦀 Rust
-
-          </textarea></section><section><section data-markdown><textarea data-template>
-            #### WebAssembly Compilation
-
-Build on WebAssembly targets with a  
-native compiler toolchain 🛠
-
-          </textarea></section><section data-markdown><textarea data-template>
-            #### Building WebAssembly
-
-```shell
-rustup add target wasm32-unknown-emscripten
+<!doctypehtml><html><head><meta charset=utf-8><meta content="width=device-width,initial-scale=1,shrink-to-fit=no"name=viewport><meta content="Artichoke 2019 RubyConf Talk"name=description><meta content="Ryan Lopopolo"name=author><title>RubyConf 2019: Artichoke is a Ruby Made with Rust 💎🦀</title><link href=https://artichoke.github.io/rubyconf/2019/ rel=canonical><link href=../deck2019.bundle.css rel=stylesheet><link href=/favicon-32x32.png rel=icon sizes=32x32><link href=/favicon-128x128.png rel=icon sizes=128x128><link href=/favicon-192x192.png rel=icon sizes=192x192><link rel="shortcut icon"href=/favicon-196x196.png sizes=196x196><link href=/favicon-152x152.png rel=apple-touch-icon sizes=152x152><link href=/favicon-180x180.png rel=apple-touch-icon sizes=180x180><link color=black href=/safari-pinned-tab.svg rel=mask-icon><meta content=#ffffff name=msapplication-tilecolor><meta content=/mstile-150x150.png name=msapplication-tileimage><meta content=/browserconfig.xml name=msapplication-config><link href=/site.webmanifest rel=manifest><meta content=summary_large_image name=twitter:card><meta content=@artichokeruby name=twitter:site><meta content=@artichokeruby name=twitter:creator><meta content="Artichoke Ruby"name=twitter:title><meta content="RubyConf 2019: Artichoke is a Ruby made with Rust."name=twitter:description><meta content=../artichoke-social-logo.png name=twitter:image><meta content=https://artichoke.github.io/rubyconf/2019/ property=og:url><meta content=artichokeruby.org property=og:site_name><meta content="RubyConf 2019: Artichoke"property=og:title><meta content="RubyConf 2019: Artichoke is a Ruby made with Rust."property=og:description><meta content=website property=og:type><meta content=../artichoke-social-logo.png property=og:image><meta content=image/png property=og:image:type><meta content=1600 property=og:image:width><meta content=800 property=og:image:height><script src="https://www.googletagmanager.com/gtag/js?id=UA-158900370-3"async></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-158900370-3");</script></head><body><div class=reveal id=js-reveal-container><div class=slides><section><h2 id=artichoke-is-a-ruby-made-with-rust>Artichoke is a Ruby Made with Rust</h2><p>💎🦀🚀</p><p><a href=https://artichoke.github.io/rubyconf/2019>🎢 artichoke.github.io/rubyconf/2019</a><br><a href=https://artichoke.run>🎡 artichoke.run</a></p></section><section><h3>Artichoke Ruby</h3><iframe src="https://rubyconf2019.artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Arequire%20'forwardable'%0Arequire%20'json'%0A%0Aclass%20Properties%0A%20%20extend%20Forwardable%0A%20%20def_delegators%20%3A%40properties%2C%20%3A%5B%5D%2C%20%3A%5B%5D%3D%2C%20%3Ato_json%0A%0A%20%20def%20initialize(name)%0A%20%20%20%20%40name%20%3D%20name%0A%20%20%20%20%40properties%20%3D%20%7B%7D%0A%20%20end%0Aend%0A%0Aartichoke%20%3D%20Properties.new('Artichoke%20Ruby')%0Aartichoke%5B%3Alanguage%5D%20%3D%20'Ruby'%0Aartichoke%5B%3Aimplementation%5D%20%3D%20'Artichoke'%0Aartichoke%5B%3Atarget%5D%20%3D%20'wasm'%0Aartichoke%5B%3Aemoji%5D%20%3D%20'%F0%9F%92%8E'%0A%0Aserialized%20%3D%20JSON.pretty_generate(artichoke)%0A%0Aputs%20serialized%20if%20serialized%20%3D~%20%2F%F0%9F%92%8E%2F"class=playground></iframe></section><section><h3>Why Build a Ruby? 🏗💎</h3><iframe src="https://www.youtube.com/embed/qybUFnY7Y8w?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&mute=1"frameborder=0 height=306 marginheight=0 marginwidth=0 scrolling=no type=text/html width=544></iframe></section><section><h3>Contributing</h3><p><a href=https://github.com/artichoke> <img alt=GitHub class=github-logo src=../social/github-logo.svg> github.com/artichoke </a></p><p><a href=https://rubyconf2019.artichoke.run>🎡 artichoke.run</a></p><p><a title="Call for participation: Experience needed to fix: Easy / not much."class=IssueLabel href=https://github.com/artichoke/artichoke/labels/E-easy> E-easy </a> <a title="Call for participation: Help is requested to fix this issue."class=IssueLabel href=https://github.com/artichoke/artichoke/labels/E-help-wanted> E-help-wanted </a></p></section><section><h3 id=goals>Goals</h3><ul><li>Build for WebAssembly 🎯</li><li>Execute untrusted code 🔦🔍</li><li>Package single-binary apps 🧳</li></ul></section><section><h4 id=webassembly>WebAssembly</h4><ul><li>Sandboxed by default 🏖</li><li>Multi-platform 👻👽👾🤖</li><li>Ruby in the browser 🍭</li></ul></section><section><h4 id=untrusted-code>Untrusted Code</h4><p>"Code execution as a service"<br>🎲🎰</p></section><section><h4 id=why-execute-untrusted-code>Why Execute Untrusted Code?</h4><ul><li><a href=https://developer.mozilla.org/en-US/docs/WebAssembly>Mozilla Firefox</a> 🔥🦊</li><li><a href=https://docs.godotengine.org/en/3.1/getting_started/step_by_step/scripting.html>Godot scripting</a> 🕹🎮</li><li><a href=https://github.com/Shopify/shopify-scripts>Shopify Scripts</a> 🛍🛒</li><li><a href=https://redis.io/commands/eval>Redis <code>EVAL</code></a> 🧱💈</li></ul></section><section><section><h4 id=single-binary-apps>Single Binary Apps</h4><p>Dead simple, hermetic deployments 🍱</p></section><section><h4 id=single-binary-apps>Single Binary Apps</h4><p>Apps are hard to package 📦<br>especially for the web 🐒</p></section><section><h4 id=single-binary-apps>Single Binary Apps</h4><ul><li>Ruby, stdlib, gems load shared objects ❗️</li><li>Stdlib, gems, apps load Ruby code 💔</li><li>Apps load Ruby code, config, and assets 💥</li></ul></section></section><section><h3 id=goals>Goals</h3><ul><li>Build for WebAssembly 🎯</li><li>Execute untrusted code 🔦🔍</li><li>Package single-binary apps 🧳</li></ul></section><section><h3 id=artichoke-💎❤️🦀-rust>Artichoke 💎❤️🦀 Rust</h3></section><section><section><h4 id=webassembly-compilation>WebAssembly Compilation</h4><p>Build on WebAssembly targets with a<br>native compiler toolchain 🛠</p></section><section><h4 id=building-webassembly>Building WebAssembly</h4><pre><code class="hljs artichoke-highlight language-shell">rustup add target wasm32-unknown-emscripten
 cargo build --release --target wasm32-unknown-emscripten
-```
-
-          </textarea></section></section><section><h4>Deep Web Integration</h4><iframe class="playground" src="https://rubyconf2019.artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0A%3C%3CUSAGE%0AThis%20program%20is%20a%20quine%20built%20using%0AArtichoke%20Ruby%20and%20a%20gem%20based%20on%20stdweb.%0AUSAGE%0A%0Arequire%20'uri'%0Arequire%20'artichoke%2Fweb'%0A%0Alocation%20%3D%20Artichoke%3A%3AWeb%3A%3AWindow.location%0Acontents%20%3D%20location.hash%5B1..-1%5D%0Aputs%20URI.decode(contents)"></iframe></section><section><section data-markdown><textarea data-template>
-            #### Static Linking
-
-Drop a single binary in `FROM scratch` Docker container and run a full Rails app
-💎🐳
-
-          </textarea></section><section data-markdown><textarea data-template>
-            #### Static Linking
-
-Statically linked dependencies enable  
-single binary app distributions 📻
-
-          </textarea></section><section data-markdown><textarea data-template>
-            #### Static Linking
-
-Statically linked libc enables  
-single binary app distributions 🥔
-
-<hr style="width: 50%">
-
-`x86_64-unknown-linux-musl`
-
-          </textarea></section></section><section data-markdown><textarea data-template>
-            ### From Rust to Ruby
-
-🦀 ➡️ 💎
-
-          </textarea></section><section data-markdown><textarea data-template>
-            ### Ruby Core
-
-```ruby
-ENV['DRY_RUN'] = '0'
-ary = Array.new(1024, 'Artichoke Ruby')
+</code></pre></section></section><section><h4>Deep Web Integration</h4><iframe src="https://rubyconf2019.artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0A%3C%3CUSAGE%0AThis%20program%20is%20a%20quine%20built%20using%0AArtichoke%20Ruby%20and%20a%20gem%20based%20on%20stdweb.%0AUSAGE%0A%0Arequire%20'uri'%0Arequire%20'artichoke%2Fweb'%0A%0Alocation%20%3D%20Artichoke%3A%3AWeb%3A%3AWindow.location%0Acontents%20%3D%20location.hash%5B1..-1%5D%0Aputs%20URI.decode(contents)"class=playground></iframe></section><section><section><h4 id=static-linking>Static Linking</h4><p>Drop a single binary in <code>FROM scratch</code> Docker container and run a full Rails app 💎🐳</p></section><section><h4 id=static-linking>Static Linking</h4><p>Statically linked dependencies enable<br>single binary app distributions 📻</p></section><section><h4 id=static-linking>Static Linking</h4><p>Statically linked libc enables<br>single binary app distributions 🥔</p><hr style=width:50%><p><code>x86_64-unknown-linux-musl</code></p></section></section><section><h3 id=from-rust-to-ruby>From Rust to Ruby</h3><p>🦀 ➡️ 💎</p></section><section><h3 id=ruby-core>Ruby Core</h3><pre><code class="hljs artichoke-highlight language-ruby">ENV[<span class=hljs-string>'DRY_RUN'</span>] = <span class=hljs-string>'0'</span>
+ary = Array.new(<span class=hljs-number>1024</span>, <span class=hljs-string>'Artichoke Ruby'</span>)
 fixture = File.read(
-  'artichoke-frontend/ruby/fixtures/learnxinyminutes.txt'
+  <span class=hljs-string>'artichoke-frontend/ruby/fixtures/learnxinyminutes.txt'</span>
 )
 /function/.match(fixture)
-```
+</code></pre></section><section><h3 id=ruby-core>Ruby Core</h3><ul><li>Multiple implementations 😺😸😻</li><li>Configurable at compile time 🏘</li></ul></section><section><section><h4>Untrusted <code>ENV</code> Access</h4><iframe src="https://rubyconf2019.artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Aputs%20%22%23%7BENV.size%7D%20keys%20in%20%23%7BENV%7D%22%0Aputs%20%22ENV%20%3D%20%23%7BENV.to_h%7D%22%0A%0AENV%5B'CONFERENCE'%5D%20%3D%20'RubyConf'%0A%0Aputs%20%22ENV%20%3D%20%23%7BENV.to_h%7D%22"class=playground></iframe></section><section><h4 id=env><code>ENV</code></h4><ul><li>System backend ↔️ OS 🖥</li><li>In-memory backend ↔️ <code>HashMap</code> 🎟</li></ul></section><section><h4 id=in-memory-env>In-Memory <code>ENV</code></h4><p>Build on WebAssembly targets that<br>do not have a system environ 🔧</p></section><section><h4 id=in-memory-env>In-Memory <code>ENV</code></h4><p>Run untrusted code by<br>restricting system access ⛓</p></section></section><section><section><h4>Capturable <code>IO</code></h4><iframe src="https://rubyconf2019.artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Awarn%20%22That's%20no%20moon.%22%0A%0A(1..5).each%20do%20%7Cpilot%7C%0A%20%20print%20%22Red%20%23%7Bpilot%7D%20standing%20by%20...%22%2C%20%22%5Cn%22%0Aend%0A%0Aputs%20''%2C%20'Lock%20S-foils%20in%20attack%20position.'"class=playground></iframe></section><section><h4 id=io><code>IO</code></h4><ul><li>Capturable <code>$stdout</code> and <code>$stderr</code> 🧤</li><li>Optional <code>IO#popen</code> 🚪</li><li>Optional <code>Kernel#open("|date")</code> 📅</li></ul></section><section><h4 id=capturable-io>Capturable <code>IO</code></h4><p>Build on WebAssembly targets that<br>do not have file descriptors 🔧</p></section><section><h4 id=disabled-io-pipes>Disabled <code>IO</code> pipes</h4><p>Run untrusted code by disabling<br>subprocess capabilities ⛓</p></section></section><section><section><h4>Virtual <code>Kernel#require</code></h4><iframe src="https://rubyconf2019.artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Arequire%20'json'%0A%0Ajson%20%3D%20%7B%20backend%3A%20'memory'%20%7D.to_json%0A%0Aputs%20json"class=playground></iframe></section><section><h4 id=file-access><code>File</code> Access</h4><ul><li>System backend ↔️ OS 🗄📁</li><li>In-memory backend ↔️ <code>HashMap</code> 🗃🗂</li></ul></section></section><section><section><h4>Pure Rust <code>Regexp</code></h4><iframe class=playground src=https://rubyconf2019.artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Ahaystack%20%3D%20%3C%3C-HAYSTACK%0A%20%20%5B%20ruby_koans%20%5D%20%24%20ruby%20path_to_enlightenment.rb%0A%20%20(in%20%2FUsers%2Fperson%2Fdev%2Fruby_koans)%0A%20%20cd%20koans%0A%0A%20%20Thinking%20AboutAsserts%0A%20%20test_assert_truth%20has%20damaged%20your%20karma.%0A%0A%20%20You%20have%20not%20yet%20reached%20enlightenment%20...%0A%20%20%3Cfalse%3E%20is%20not%20true.%0AHAYSTACK%0A%0Amatch%20%3D%20%2Fruby%20(%5Ba-zA-Z0-9_%5D%2B%5C.rb)%2F.match(haystack)%0A%0Aputs%20%22To%20walk%20the%20path%2C%20run%3A%22%2C%20%22%24%20ruby%20%23%7Bmatch%5B1%5D%7D%22></iframe></section><section><h4 id=regexp><code>Regexp</code></h4><ul><li>Pure Rust engine for WebAssembly 💧</li><li>Oniguruma engine for compatibility 🚗</li></ul></section></section><section><h3 id=from-core-to-fast>From Core to Fast</h3><p>🏎💨 🏎🏎</p><p><small>Benchmarks run on AWS <code>c5.2xlarge</code> 🖥 🖥</small></p></section><section><section><h3 id=stringscan><code>String#scan</code></h3><p><code>String</code> pattern over 6.8MB of Unicode text 📚</p><pre><code class="hljs artichoke-highlight language-ruby">raise <span class=hljs-keyword>unless</span> <span class=hljs-variable>$fixture</span>.scan(<span class=hljs-string>'http://'</span>).length == <span class=hljs-number>3539</span>
+raise <span class=hljs-keyword>unless</span> <span class=hljs-variable>$fixture</span>.scan(<span class=hljs-string>'https://'</span>).length == <span class=hljs-number>1865</span>
+raise <span class=hljs-keyword>unless</span> <span class=hljs-variable>$fixture</span>.scan(<span class=hljs-string>'表达式'</span>).length == <span class=hljs-number>120</span>
+raise <span class=hljs-keyword>unless</span> <span class=hljs-variable>$fixture</span>.scan(<span class=hljs-string>"\r\n"</span>).empty?
+</code></pre></section><section><h3><code>String#scan</code></h3><iframe class=playground src=../learnxinyminutes-truncated.txt></iframe></section></section><section><h3><code>String#scan</code></h3><div class=stat-container><div class="stat-box stat-box-win"><div class=stat-box-type>Artichoke</div><div class=stat-box-number>66</div><div class=stat-box-units>ms / iteration</div></div><div class=divider></div><div class=stat-box><div class=stat-box-type>MRI</div><div class=stat-box-number>82</div><div class=stat-box-units>ms / iteration</div></div></div></section><section><section><h3 id=stringscan><code>String#scan</code></h3><p><code>Regexp</code> pattern over 6.8MB of Unicode text 📚</p><pre><code class="hljs artichoke-highlight language-ruby">raise <span class=hljs-keyword>unless</span> <span class=hljs-variable>$fixture</span>.scan(<span class=hljs-regexp>%r{https?://}</span>).length == <span class=hljs-number>3539</span>+<span class=hljs-number>1865</span>
+raise <span class=hljs-keyword>unless</span> <span class=hljs-variable>$fixture</span>.scan(<span class=hljs-regexp>/表达式/</span>).length == <span class=hljs-number>120</span>
+raise <span class=hljs-keyword>unless</span> <span class=hljs-variable>$fixture</span>.scan(<span class=hljs-regexp>/\r\n/</span>).empty?
+</code></pre></section><section><h3><code>String#scan</code></h3><iframe class=playground src=../learnxinyminutes-truncated.txt></iframe></section></section><section><h3><code>String#scan</code></h3><div class=stat-container><div class="stat-box stat-box-win"><div class=stat-box-type>Artichoke</div><div class=stat-box-number>48</div><div class=stat-box-units>ms / iteration</div></div><div class=divider></div><div class=stat-box><div class=stat-box-type>MRI</div><div class=stat-box-number>89</div><div class=stat-box-units>ms / iteration</div></div></div></section><section><h3 id=sparse-array-allocation>Sparse Array Allocation</h3><pre><code class="hljs artichoke-highlight language-ruby">a = []
+a[<span class=hljs-number>1_000_000_000_000_000</span>] = <span class=hljs-string>'quadrillion'</span>
+a.concat((<span class=hljs-number>0</span>..<span class=hljs-number>1000</span>).to_a)
 
-          </textarea></section><section data-markdown><textarea data-template>
-            ### Ruby Core
-
-- Multiple implementations 😺😸😻
-- Configurable at compile time 🏘
-
-          </textarea></section><section><section><h4>Untrusted <code>ENV</code> Access</h4><iframe class="playground" src="https://rubyconf2019.artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Aputs%20%22%23%7BENV.size%7D%20keys%20in%20%23%7BENV%7D%22%0Aputs%20%22ENV%20%3D%20%23%7BENV.to_h%7D%22%0A%0AENV%5B'CONFERENCE'%5D%20%3D%20'RubyConf'%0A%0Aputs%20%22ENV%20%3D%20%23%7BENV.to_h%7D%22"></iframe></section><section data-markdown><textarea data-template>
-            #### `ENV`
-
-- System backend ↔️ OS 🖥
-- In-memory backend ↔️ `HashMap` 🎟
-
-          </textarea></section><section data-markdown><textarea data-template>
-            #### In-Memory `ENV`
-
-Build on WebAssembly targets that  
-do not have a system environ 🔧
-
-          </textarea></section><section data-markdown><textarea data-template>
-            #### In-Memory `ENV`
-
-Run untrusted code by  
-restricting system access ⛓
-
-          </textarea></section></section><section><section><h4>Capturable <code>IO</code></h4><iframe class="playground" src="https://rubyconf2019.artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Awarn%20%22That's%20no%20moon.%22%0A%0A(1..5).each%20do%20%7Cpilot%7C%0A%20%20print%20%22Red%20%23%7Bpilot%7D%20standing%20by%20...%22%2C%20%22%5Cn%22%0Aend%0A%0Aputs%20''%2C%20'Lock%20S-foils%20in%20attack%20position.'"></iframe></section><section data-markdown><textarea data-template>
-            #### `IO`
-
-- Capturable `$stdout` and `$stderr` 🧤
-- Optional `IO#popen` 🚪
-- Optional `Kernel#open("|date")` 📅
-
-          </textarea></section><section data-markdown><textarea data-template>
-            #### Capturable `IO`
-
-Build on WebAssembly targets that  
-do not have file descriptors 🔧
-
-          </textarea></section><section data-markdown><textarea data-template>
-            #### Disabled `IO` pipes
-
-Run untrusted code by disabling  
-subprocess capabilities ⛓
-
-          </textarea></section></section><section><section><h4>Virtual <code>Kernel#require</code></h4><iframe class="playground" src="https://rubyconf2019.artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Arequire%20'json'%0A%0Ajson%20%3D%20%7B%20backend%3A%20'memory'%20%7D.to_json%0A%0Aputs%20json"></iframe></section><section data-markdown><textarea data-template>
-            #### `File` Access
-
-- System backend ↔️ OS 🗄📁
-- In-memory backend ↔️ `HashMap` 🗃🗂
-
-          </textarea></section></section><section><section><h4>Pure Rust <code>Regexp</code></h4><iframe class="playground" src="https://rubyconf2019.artichoke.run/?embed#%23%20frozen_string_literal%3A%20true%0A%0Ahaystack%20%3D%20%3C%3C-HAYSTACK%0A%20%20%5B%20ruby_koans%20%5D%20%24%20ruby%20path_to_enlightenment.rb%0A%20%20(in%20%2FUsers%2Fperson%2Fdev%2Fruby_koans)%0A%20%20cd%20koans%0A%0A%20%20Thinking%20AboutAsserts%0A%20%20test_assert_truth%20has%20damaged%20your%20karma.%0A%0A%20%20You%20have%20not%20yet%20reached%20enlightenment%20...%0A%20%20%3Cfalse%3E%20is%20not%20true.%0AHAYSTACK%0A%0Amatch%20%3D%20%2Fruby%20(%5Ba-zA-Z0-9_%5D%2B%5C.rb)%2F.match(haystack)%0A%0Aputs%20%22To%20walk%20the%20path%2C%20run%3A%22%2C%20%22%24%20ruby%20%23%7Bmatch%5B1%5D%7D%22"></iframe></section><section data-markdown><textarea data-template>
-            #### `Regexp`
-
-- Pure Rust engine for WebAssembly 💧
-- Oniguruma engine for compatibility 🚗
-
-          </textarea></section></section><section data-markdown><textarea data-template>
-            ### From Core to Fast
-
-🏎💨 🏎🏎
-
-<small>Benchmarks run on AWS `c5.2xlarge` 🖥 🖥</small>
-
-          </textarea></section><section><section data-markdown><textarea data-template>
-              ### `String#scan`
-
-`String` pattern over 6.8MB of Unicode text 📚
-
-```ruby
-raise unless $fixture.scan('http://').length == 3539
-raise unless $fixture.scan('https://').length == 1865
-raise unless $fixture.scan('表达式').length == 120
-raise unless $fixture.scan("\r\n").empty?
-```
-
-            </textarea></section><section><h3><code>String#scan</code></h3><iframe src="/rubyconf/970907ce3a0cddcf6f8a.txt" class="playground"></iframe></section></section><section><h3><code>String#scan</code></h3><div class="stat-container"><div class="stat-box stat-box-win"><div class="stat-box-type">Artichoke</div><div class="stat-box-number">66</div><div class="stat-box-units">ms / iteration</div></div><div class="divider"></div><div class="stat-box"><div class="stat-box-type">MRI</div><div class="stat-box-number">82</div><div class="stat-box-units">ms / iteration</div></div></div></section><section><section data-markdown><textarea data-template>
-              ### `String#scan`
-
-`Regexp` pattern over 6.8MB of Unicode text 📚
-
-```ruby
-raise unless $fixture.scan(%r{https?://}).length == 3539+1865
-raise unless $fixture.scan(/表达式/).length == 120
-raise unless $fixture.scan(/\r\n/).empty?
-```
-
-            </textarea></section><section><h3><code>String#scan</code></h3><iframe src="/rubyconf/970907ce3a0cddcf6f8a.txt" class="playground"></iframe></section></section><section><h3><code>String#scan</code></h3><div class="stat-container"><div class="stat-box stat-box-win"><div class="stat-box-type">Artichoke</div><div class="stat-box-number">48</div><div class="stat-box-units">ms / iteration</div></div><div class="divider"></div><div class="stat-box"><div class="stat-box-type">MRI</div><div class="stat-box-number">89</div><div class="stat-box-units">ms / iteration</div></div></div></section><section data-markdown><textarea data-template>
-            ### Sparse Array Allocation
-
-```ruby
-a = []
-a[1_000_000_000_000_000] = 'quadrillion'
-a.concat((0..1000).to_a)
-
-100.times do |i|
+<span class=hljs-number>100</span>.times <span class=hljs-keyword>do</span> <span class=hljs-params>|i|</span>
   a.unshift(i)
-end
+<span class=hljs-keyword>end</span>
 
 b = a.reverse
-b[123_456_789, 500_000] = [Object.new, /Array/, 100.0]
+b[<span class=hljs-number>123_456_789</span>, <span class=hljs-number>500_000</span>] = [Object.new, <span class=hljs-regexp>/Array/</span>, <span class=hljs-number>100.0</span>]
 
-puts a.length # => 1000000000001102
-puts b.length # => 999999999501105
-```
-
-          </textarea></section><section><h3>Sparse Array Allocation</h3><div class="stat-container"><div class="stat-box stat-box-win"><div class="stat-box-type">Artichoke</div><div class="stat-box-number">7</div><div class="stat-box-units">MB / iteration</div></div><div class="divider"></div><div class="stat-box"><div class="stat-box-type">MRI</div><div class="stat-box-text">failed to allocate memory (<code>NoMemoryError</code>)</div><div class="stat-box-units"></div></div></div></section><section data-markdown><textarea data-template>
-            ### Upcoming Core Work
-
-- `Hash` with small vec backend 🍳
-- `Range` and `Range`-based `Array` 🦉
-- `File` with in-memory and OS backends 🧩
-
-          </textarea></section><section><h3>Contributing</h3><p><a href="https://github.com/artichoke"><img class="github-logo" src="" alt="GitHub"/> github.com/artichoke</a></p><p><a href="https://rubyconf2019.artichoke.run">🎡 artichoke.run</a></p><p><a class="IssueLabel" title="Call for participation: Experience needed to fix: Easy / not much." href="https://github.com/artichoke/artichoke/labels/E-easy">E-easy </a><a class="IssueLabel" title="Call for participation: Help is requested to fix this issue." href="https://github.com/artichoke/artichoke/labels/E-help-wanted">E-help-wanted</a></p></section></div></div><div id="js-artichoke-chrome" class="artichoke-footer-logo"><div class="header"><div class="header-tweet"><a href="https://twitter.com/intent/tweet?screen_name=artichokeruby&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-size="large" data-show-count="false">Tweet to @artichokeruby</a></div><div></div><div class="header-logo"></div></div><div class="footer-logo"><a href="https://github.com/artichoke/artichoke" alt="Artichoke Ruby"><img src="/rubyconf/76f93232f1b2161a8e7f.svg"/></a></div></div></body></html>
+puts a.length <span class=hljs-comment># => 1000000000001102</span>
+puts b.length <span class=hljs-comment># => 999999999501105</span>
+</code></pre></section><section><h3>Sparse Array Allocation</h3><div class=stat-container><div class="stat-box stat-box-win"><div class=stat-box-type>Artichoke</div><div class=stat-box-number>7</div><div class=stat-box-units>MB / iteration</div></div><div class=divider></div><div class=stat-box><div class=stat-box-type>MRI</div><div class=stat-box-text>failed to allocate memory (<code>NoMemoryError</code>)</div><div class=stat-box-units></div></div></div></section><section><h3 id=upcoming-core-work>Upcoming Core Work</h3><ul><li><code>Hash</code> with small vec backend 🍳</li><li><code>Range</code> and <code>Range</code>-based <code>Array</code> 🦉</li><li><code>File</code> with in-memory and OS backends 🧩</li></ul></section><section><h3>Contributing</h3><p><a href=https://github.com/artichoke> <img alt=GitHub class=github-logo src=../social/github-logo.svg> github.com/artichoke </a></p><p><a href=https://rubyconf2019.artichoke.run>🎡 artichoke.run</a></p><p><a title="Call for participation: Experience needed to fix: Easy / not much."class=IssueLabel href=https://github.com/artichoke/artichoke/labels/E-easy> E-easy </a> <a title="Call for participation: Help is requested to fix this issue."class=IssueLabel href=https://github.com/artichoke/artichoke/labels/E-help-wanted> E-help-wanted </a></p></section></div></div><div class=artichoke-footer-logo id=js-artichoke-chrome><div class=header><div class=header-tweet><a href="https://twitter.com/intent/tweet?screen_name=artichokeruby&ref_src=twsrc%5Etfw"class=twitter-mention-button data-show-count=false data-size=large> Tweet to @artichokeruby </a></div><div></div><div class=header-logo></div></div><div class=footer-logo><a alt="Artichoke Ruby"href=https://github.com/artichoke/artichoke> <img src=../artichoke-logo.svg> </a></div></div><script src=../deck2019.bundle.js type=module></script></body></html>
