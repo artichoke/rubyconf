@@ -47,6 +47,9 @@
 - name: "C-question"
   color: "c1c8ff"
   description: "Category: Further information is requested."
+- name: "CONF-rubyconf-2019"
+  color: "a742f5"
+  description: "Conference: RubyConf 2019."
 - name: "E-easy"
   color: "02e10c"
   description:
