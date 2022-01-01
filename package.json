@@ -22,7 +22,7 @@
     "reveal.js": "^4.2.0"
   },
   "devDependencies": {
-    "@minify-html/js": "^0.7.0",
+    "@minify-html/js": "^0.8.0",
     "esbuild": "^0.14.1",
     "eta": "^1.12.3",
     "highlight.js": "^11.3.1",
