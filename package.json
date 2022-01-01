@@ -19,7 +19,7 @@
   "repository": "github:artichoke/rubyconf",
   "dependencies": {
     "@artichokeruby/logo": "^0.11.0",
-    "reveal.js": "^4.2.0"
+    "reveal.js": "^4.2.1"
   },
   "devDependencies": {
     "@minify-html/js": "^0.7.0",
