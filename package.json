@@ -19,15 +19,15 @@
   "repository": "github:artichoke/rubyconf",
   "dependencies": {
     "@artichokeruby/logo": "^0.12.0",
-    "reveal.js": "^4.2.1"
+    "reveal.js": "^4.3.0"
   },
   "devDependencies": {
     "@minify-html/js": "^0.8.0",
-    "esbuild": "^0.14.16",
+    "esbuild": "^0.14.23",
     "eta": "^1.12.3",
     "highlight.js": "^11.4.0",
     "marked": "^4.0.12",
-    "sass": "^1.49.4"
+    "sass": "^1.49.9"
   },
   "eslintConfig": {
     "env": {
