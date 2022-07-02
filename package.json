@@ -22,12 +22,12 @@
     "reveal.js": "^4.3.1"
   },
   "devDependencies": {
-    "@minify-html/js": "^0.8.0",
-    "esbuild": "^0.14.29",
+    "@minify-html/js": "^0.8.1",
+    "esbuild": "^0.14.48",
     "eta": "^1.12.3",
-    "highlight.js": "^11.5.0",
-    "marked": "^4.0.12",
-    "sass": "^1.49.10"
+    "highlight.js": "^11.5.1",
+    "marked": "^4.0.17",
+    "sass": "^1.53.0"
   },
   "eslintConfig": {
     "env": {
