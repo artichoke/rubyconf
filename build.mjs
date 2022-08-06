@@ -1,20 +1,17 @@
 /* eslint-disable no-console */
 
+import { Buffer } from "node:buffer";
 import { readFileSync } from "node:fs";
 import fs from "node:fs/promises";
-import { createRequire } from "node:module";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import minifyHtml from "@minify-html/node";
 import { renderFile } from "eta";
 import esbuild from "esbuild";
 import hljs from "highlight.js";
 import { marked } from "marked";
 import sass from "sass";
-
-// eslint-disable-next-line no-shadow
-const require = createRequire(import.meta.url);
-const minifyHtml = require("@minify-html/js");
 
 // eslint-disable-next-line no-shadow
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
@@ -117,7 +114,8 @@ const build = async () => {
   );
 
   if (process.argv.includes("--release")) {
-    const cfg = minifyHtml.createConfiguration({
+    const input = Buffer.from(index);
+    const output = minifyHtml.minify(input, {
       ensure_spec_compliant_unquoted_attribute_values: true,
       keep_html_and_head_opening_tags: true,
       keep_closing_tags: true,
@@ -126,7 +124,7 @@ const build = async () => {
       remove_bangs: false,
     });
 
-    index = minifyHtml.minify(index, cfg);
+    index = output.toString();
   }
 
   await fs.writeFile(path.join(__dirname, "dist", "index.html"), index);
@@ -138,7 +136,8 @@ const build = async () => {
   );
 
   if (process.argv.includes("--release")) {
-    const cfg = minifyHtml.createConfiguration({
+    const input = Buffer.from(deck2019);
+    const output = minifyHtml.minify(input, {
       ensure_spec_compliant_unquoted_attribute_values: true,
       keep_html_and_head_opening_tags: true,
       keep_closing_tags: true,
@@ -147,7 +146,7 @@ const build = async () => {
       remove_bangs: false,
     });
 
-    deck2019 = minifyHtml.minify(deck2019, cfg);
+    deck2019 = output.toString();
   }
 
   await fs.writeFile(
