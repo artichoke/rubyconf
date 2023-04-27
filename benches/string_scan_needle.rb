@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # rubocop:disable Style/GlobalVars
-if (path = ENV['FIXTURE'])
+if (path = ENV.fetch('FIXTURE', nil))
   $fixture = File.read(path)
 end
 
