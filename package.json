@@ -27,7 +27,7 @@
     "eta": "^2.0.1",
     "highlight.js": "^11.7.0",
     "marked": "^4.3.0",
-    "sass": "^1.60.0"
+    "sass": "^1.62.1"
   },
   "eslintConfig": {
     "env": {
