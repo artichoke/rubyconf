@@ -11,6 +11,7 @@ import { renderFile } from "eta";
 import esbuild from "esbuild";
 import hljs from "highlight.js";
 import { marked } from "marked";
+import { markedHighlight } from "marked-highlight";
 import sass from "sass";
 
 // eslint-disable-next-line no-shadow
@@ -42,30 +43,30 @@ const assets = Object.freeze([
   "node_modules/@artichokeruby/logo/social/discord-logo.svg",
 ]);
 
-marked.setOptions({
-  renderer: new marked.Renderer(),
-  highlight: (code, language) => {
-    const highlighted = hljs.highlight(code, {
-      language,
-      ignoreIllegals: true,
-    });
-    const html = highlighted.value;
-    return html;
-  },
-  langPrefix: "hljs artichoke-highlight language-",
-  pedantic: false,
-  gfm: true,
-  breaks: false,
-  sanitize: false,
-  smartLists: true,
-  smartypants: false,
-  xhtml: false,
+marked.use({
+  headerIds: false,
+  mangle: false,
 });
+
+marked.use(
+  markedHighlight({
+    langPrefix: "hljs artichoke-highlight language-",
+    highlight(code, lang) {
+      const language = hljs.getLanguage(lang) ? lang : "plaintext";
+      const highlighted = hljs.highlight(code, {
+        language,
+        ignoreIllegals: true,
+      });
+      const html = highlighted.value;
+      return html;
+    },
+  })
+);
 
 const includeMarkdown = (source) => {
   const filePath = path.join(__dirname, "src", source);
   const content = readFileSync(filePath);
-  return marked(content.toString());
+  return marked.parse(content.toString());
 };
 
 const esbuildSassPlugin = {
