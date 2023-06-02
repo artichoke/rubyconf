@@ -3,4 +3,4 @@
 source 'https://rubygems.org'
 
 gem 'bundler-audit', '~> 0.9', require: false
-gem 'rubocop', '~> 1.50', require: false
+gem 'rubocop', '~> 1.51', require: false
