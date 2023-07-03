@@ -4,7 +4,6 @@ import { Buffer } from "node:buffer";
 import { readFileSync } from "node:fs";
 import fs from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 
 import minifyHtml from "@minify-html/node";
 import { Eta } from "eta";
@@ -13,9 +12,6 @@ import hljs from "highlight.js";
 import { marked } from "marked";
 import { markedHighlight } from "marked-highlight";
 import * as sass from "sass";
-
-// eslint-disable-next-line no-shadow
-const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
 const assets = Object.freeze([
   "src/learnxinyminutes-truncated.txt",
@@ -64,7 +60,7 @@ marked.use(
 );
 
 const includeMarkdown = (source) => {
-  const filePath = path.join(__dirname, "src", source);
+  const filePath = path.join("src", source);
   const content = readFileSync(filePath);
   return marked.parse(content.toString());
 };
@@ -81,7 +77,7 @@ const esbuildSassPlugin = {
     build.onLoad({ filter: /.*/, namespace: "sass" }, (args) => {
       let compiled = sass.renderSync({
         file: args.path,
-        includePaths: [path.join(__dirname, "node_modules")],
+        includePaths: [path.join("node_modules")],
       });
       return {
         contents: compiled.css.toString(),
@@ -99,16 +95,16 @@ const build = async () => {
     assets.map(async (asset) => {
       const file = path.basename(asset);
       if (asset.includes("/social/")) {
-        await fs.copyFile(asset, path.join(__dirname, "dist", "social", file));
+        await fs.copyFile(asset, path.join("dist", "social", file));
       } else if (asset.includes("/logos/")) {
-        await fs.copyFile(asset, path.join(__dirname, "dist", "logos", file));
+        await fs.copyFile(asset, path.join("dist", "logos", file));
       } else {
-        await fs.copyFile(asset, path.join(__dirname, "dist", file));
+        await fs.copyFile(asset, path.join("dist", file));
       }
     })
   );
 
-  const eta = new Eta({ views: path.join(__dirname, "src") });
+  const eta = new Eta({ views: "src" });
   let index = await eta.renderAsync("index.html", { includeMarkdown });
 
   if (process.argv.includes("--release")) {
@@ -125,7 +121,7 @@ const build = async () => {
     index = output.toString();
   }
 
-  await fs.writeFile(path.join(__dirname, "dist", "index.html"), index);
+  await fs.writeFile(path.join("dist", "index.html"), index);
 
   let deck2019 = await eta.renderAsync("2019/index.html", { includeMarkdown });
 
@@ -143,10 +139,7 @@ const build = async () => {
     deck2019 = output.toString();
   }
 
-  await fs.writeFile(
-    path.join(__dirname, "dist", "2019", "index.html"),
-    deck2019
-  );
+  await fs.writeFile(path.join("dist", "2019", "index.html"), deck2019);
 
   await esbuild.build({
     entryPoints: {
