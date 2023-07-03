@@ -50,11 +50,11 @@
     ]
   },
   "scripts": {
-    "dev": "node build.mjs && vite preview",
-    "build": "node build.mjs",
+    "dev": "vite dev",
+    "build": "vite build",
     "preview": "vite preview",
     "clean": "rimraf dist",
-    "assets:copy": "rimraf src/public && node copy-assets.mjs",
+    "copy:assets": "rimraf src/public && node copy-assets.mjs && git checkout -- src/public/learnxinyminutes-truncated.txt src/public/site.webmanifest",
     "fmt": "prettier --write \"**/*\"",
     "lint": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx --fix"

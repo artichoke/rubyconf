@@ -4,13 +4,6 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 const assets = Object.freeze([
-  "src/learnxinyminutes-truncated.txt",
-  "node_modules/@artichokeruby/logo/img/artichoke-logo.png",
-  "node_modules/@artichokeruby/logo/img/artichoke-logo.svg",
-  "node_modules/@artichokeruby/logo/img/artichoke-logo-inverted.png",
-  "node_modules/@artichokeruby/logo/img/artichoke-logo-inverted.svg",
-  "node_modules/@artichokeruby/logo/img/playground.png",
-  "node_modules/@artichokeruby/logo/img/playground-social-logo.png",
   "node_modules/@artichokeruby/logo/favicons/favicon-32x32.png",
   "node_modules/@artichokeruby/logo/favicons/favicon-128x128.png",
   "node_modules/@artichokeruby/logo/favicons/favicon-192x192.png",
@@ -19,14 +12,8 @@ const assets = Object.freeze([
   "node_modules/@artichokeruby/logo/favicons/favicon-180x180.png",
   "node_modules/@artichokeruby/logo/favicons/safari-pinned-tab.svg",
   "node_modules/@artichokeruby/logo/favicons/mstile-150x150.png",
-  "node_modules/@artichokeruby/logo/favicons/browserconfig.xml",
-  "node_modules/@artichokeruby/logo/favicons/site.webmanifest",
-  "node_modules/@artichokeruby/logo/optimized/nav-white.svg",
-  "node_modules/@artichokeruby/logo/optimized/wordmark-black.svg",
-  "node_modules/@artichokeruby/logo/social/twitter-logo-black.svg",
-  "node_modules/@artichokeruby/logo/social/twitter-logo-blue.svg",
+  "node_modules/@artichokeruby/logo/optimized/artichoke-logo.svg",
   "node_modules/@artichokeruby/logo/social/github-logo.svg",
-  "node_modules/@artichokeruby/logo/social/discord-logo.svg",
 ]);
 
 const build = async () => {
