@@ -30,6 +30,7 @@
     "marked": "^5.1.0",
     "marked-highlight": "^2.0.1",
     "prettier": "2.8.8",
+    "rimraf": "^3.0.2",
     "sass": "^1.63.6"
   },
   "eslintConfig": {
@@ -50,15 +51,10 @@
   "scripts": {
     "build:debug": "node build.mjs",
     "build:release": "node build.mjs --release",
-    "clean": "rm -rf dist",
-    "dev:debug": "npx concurrently \"npm:serve\" \"npm:watch:debug\"",
-    "dev:release": "npx concurrently \"npm:serve\" \"npm:watch:release\"",
+    "clean": "rimraf dist",
+    "dev": "node build.mjs && python3 -u -m http.server --directory dist --bind localhost 0",
     "fmt": "prettier --write \"**/*\"",
     "lint": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx",
-    "lint:fix": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx --fix",
-    "release:markdown_link_check": "find . -name '*.md' -and -not -path '*/node_modules/*' | sort | xargs -n1 npx markdown-link-check --config .github/markdown-link-check.json",
-    "serve": "python3 -u -m http.server --directory dist --bind localhost 0",
-    "watch:debug": "npx chokidar-cli \"package.json\" \"package-lock.json\" \"build.mjs\" \"src/**/*\" -c \"npm run build:debug\" --initial",
-    "watch:release": "npx chokidar-cli \"package.json\" \"package-lock.json\" \"build.mjs\" \"src/**/*\" -c \"npm run build:release\" --initial"
+    "lint:fix": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx --fix"
   }
 }
