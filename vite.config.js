@@ -40,7 +40,7 @@ const etaPlugin = () => {
   return {
     name: "eta-html-transform",
     transformIndexHtml: {
-      enforce: "pre",
+      order: "pre",
       transform(html) {
         const eta = new Eta({ views: "src" });
         return eta.renderString(html, { includeMarkdown });
@@ -54,7 +54,7 @@ const minifyHtmlPlugin = () => {
     name: "minify-html-transform",
     apply: "build",
     transformIndexHtml: {
-      enforce: "post",
+      order: "post",
       transform(html) {
         const input = Buffer.from(html);
 
