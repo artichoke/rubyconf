@@ -30,7 +30,7 @@ updates:
     schedule:
       interval: monthly
     groups:
-      rubygem-deps:
+      bundler-deps:
         patterns:
           - "*"
     assignees:
