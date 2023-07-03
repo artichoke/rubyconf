@@ -13,6 +13,7 @@ const assets = Object.freeze([
   "node_modules/@artichokeruby/logo/favicons/safari-pinned-tab.svg",
   "node_modules/@artichokeruby/logo/favicons/mstile-150x150.png",
   "node_modules/@artichokeruby/logo/optimized/artichoke-logo.svg",
+  "node_modules/@artichokeruby/logo/optimized/artichoke-social-logo.png",
   "node_modules/@artichokeruby/logo/social/github-logo.svg",
 ]);
 
