@@ -18,12 +18,12 @@
   ],
   "repository": "github:artichoke/rubyconf",
   "dependencies": {
-    "@artichokeruby/logo": "^0.12.0",
     "reveal.js": "^4.5.0"
   },
   "devDependencies": {
+    "@artichokeruby/logo": "^0.12.0",
     "@minify-html/node": "^0.11.1",
-    "esbuild": "0.18.11",
+    "esbuild": "^0.17.19",
     "eslint": "8.44.0",
     "eta": "^3.0.3",
     "highlight.js": "^11.8.0",
@@ -31,7 +31,8 @@
     "marked-highlight": "^2.0.1",
     "prettier": "2.8.8",
     "rimraf": "^3.0.2",
-    "sass": "^1.63.6"
+    "sass": "^1.63.6",
+    "vite": "^4.3.9"
   },
   "eslintConfig": {
     "env": {
@@ -49,10 +50,11 @@
     ]
   },
   "scripts": {
-    "build:debug": "node build.mjs",
-    "build:release": "node build.mjs --release",
+    "dev": "node build.mjs && vite preview",
+    "build": "node build.mjs",
+    "preview": "vite preview",
     "clean": "rimraf dist",
-    "dev": "node build.mjs && python3 -u -m http.server --directory dist --bind localhost 0",
+    "assets:copy": "rimraf src/public && node copy-assets.mjs",
     "fmt": "prettier --write \"**/*\"",
     "lint": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx --fix"
