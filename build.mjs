@@ -7,7 +7,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import minifyHtml from "@minify-html/node";
-import { renderFile } from "eta";
+import { Eta } from "eta";
 import esbuild from "esbuild";
 import hljs from "highlight.js";
 import { marked } from "marked";
@@ -108,11 +108,8 @@ const build = async () => {
     })
   );
 
-  let index = await renderFile(
-    "index.html",
-    { includeMarkdown },
-    { views: path.join(__dirname, "src") }
-  );
+  const eta = new Eta({ views: path.join(__dirname, "src") });
+  let index = await eta.renderAsync("index.html", { includeMarkdown });
 
   if (process.argv.includes("--release")) {
     const input = Buffer.from(index);
@@ -130,11 +127,7 @@ const build = async () => {
 
   await fs.writeFile(path.join(__dirname, "dist", "index.html"), index);
 
-  let deck2019 = await renderFile(
-    "2019/index.html",
-    { includeMarkdown },
-    { views: path.join(__dirname, "src") }
-  );
+  let deck2019 = await eta.renderAsync("2019/index.html", { includeMarkdown });
 
   if (process.argv.includes("--release")) {
     const input = Buffer.from(deck2019);
