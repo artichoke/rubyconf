@@ -77,6 +77,12 @@ export default defineConfig({
   base: "/rubyconf/",
   build: {
     outDir: "../dist",
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, "src", "index.html"),
+        2019: path.resolve(__dirname, "src", "2019", "index.html"),
+      },
+    },
   },
   plugins: [etaPlugin(), minifyHtmlPlugin()],
   server: {
