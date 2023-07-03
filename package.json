@@ -29,7 +29,7 @@
     "marked": "^5.1.0",
     "marked-highlight": "^2.0.1",
     "prettier": "2.8.8",
-    "rimraf": "^3.0.2",
+    "rimraf": "^5.0.1",
     "sass": "^1.63.6",
     "vite": "^4.3.9"
   },
