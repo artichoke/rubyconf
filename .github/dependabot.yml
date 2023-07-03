@@ -18,11 +18,6 @@ updates:
       - lopopolo
     labels:
       - A-deps
-    ignore:
-      - dependency-name: highlight.js
-        versions:
-          - "> 10.0.2"
-          - "< 11"
   - package-ecosystem: bundler
     directory: "/"
     schedule:
