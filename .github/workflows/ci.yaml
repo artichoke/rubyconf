@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Build Webapp
-        run: node build.mjs --release
+        run: npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847 # v3.9.2
@@ -80,6 +80,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3.5.3
+
+      - name: Install Node.js toolchain
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: 18
+
+      - name: Install toolchain
+        run: npm ci
 
       - name: Lint and check formatting with prettier
         run: npx prettier --check '**/*'

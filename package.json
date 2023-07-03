@@ -1,6 +1,6 @@
 {
   "name": "@artichokeruby/rubyconf",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": true,
   "description": "Artichoke Ruby conference talk website",
   "keywords": [
@@ -18,17 +18,20 @@
   ],
   "repository": "github:artichoke/rubyconf",
   "dependencies": {
-    "@artichokeruby/logo": "^0.12.0",
     "reveal.js": "^4.5.0"
   },
   "devDependencies": {
+    "@artichokeruby/logo": "^0.12.0",
     "@minify-html/node": "^0.11.1",
-    "esbuild": "0.18.11",
+    "eslint": "8.44.0",
     "eta": "^3.0.3",
     "highlight.js": "^11.8.0",
     "marked": "^5.1.0",
     "marked-highlight": "^2.0.1",
-    "sass": "^1.63.6"
+    "prettier": "2.8.8",
+    "rimraf": "^3.0.2",
+    "sass": "^1.63.6",
+    "vite": "^4.3.9"
   },
   "eslintConfig": {
     "env": {
@@ -46,17 +49,13 @@
     ]
   },
   "scripts": {
-    "build:debug": "node build.mjs",
-    "build:release": "node build.mjs --release",
-    "clean": "rm -rf dist",
-    "dev:debug": "npx concurrently \"npm:serve\" \"npm:watch:debug\"",
-    "dev:release": "npx concurrently \"npm:serve\" \"npm:watch:release\"",
-    "fmt": "npx prettier --write \"**/*\"",
-    "lint": "npx eslint . --ext .js,.jsx,.mjs,.ts,.tsx",
-    "lint:fix": "npx eslint . --ext .js,.jsx,.mjs,.ts,.tsx --fix",
-    "release:markdown_link_check": "find . -name '*.md' -and -not -path '*/node_modules/*' | sort | xargs -n1 npx markdown-link-check --config .github/markdown-link-check.json",
-    "serve": "python3 -u -m http.server --directory dist --bind localhost 0",
-    "watch:debug": "npx chokidar-cli \"package.json\" \"package-lock.json\" \"build.mjs\" \"src/**/*\" -c \"npm run build:debug\" --initial",
-    "watch:release": "npx chokidar-cli \"package.json\" \"package-lock.json\" \"build.mjs\" \"src/**/*\" -c \"npm run build:release\" --initial"
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "clean": "rimraf dist",
+    "copy:assets": "rimraf \"src/public/!(*.txt|site.webmanifest)\" && node copy-assets.mjs",
+    "fmt": "prettier --write \"**/*\"",
+    "lint": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx --fix"
   }
 }
