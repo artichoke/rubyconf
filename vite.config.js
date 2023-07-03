@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
 
-import { defineConfig } from 'vite'
+import { defineConfig } from "vite";
 
 import minifyHtml from "@minify-html/node";
 import { Eta } from "eta";
@@ -37,41 +37,40 @@ const includeMarkdown = (source) => {
 
 const etaPlugin = () => {
   return {
-    name: 'eta-html-transform',
+    name: "eta-html-transform",
     transformIndexHtml: {
-      enforce: 'pre',
+      enforce: "pre",
       transform(html) {
         const eta = new Eta({ views: "src" });
         return eta.renderString(html, { includeMarkdown });
-      }
-    }
-  }
-}
+      },
+    },
+  };
+};
 
 const minifyHtmlPlugin = () => {
   return {
-    name: 'minify-html-transform',
-    apply: 'build',
+    name: "minify-html-transform",
+    apply: "build",
     transformIndexHtml: {
-      enforce: 'post',
+      enforce: "post",
       transform(html) {
-        console.log('miniftying html');
         const input = Buffer.from(html);
 
-      const output = minifyHtml.minify(input, {
-        ensure_spec_compliant_unquoted_attribute_values: true,
-        keep_html_and_head_opening_tags: true,
-        keep_closing_tags: true,
-        minify_js: true,
-        minify_css: true,
-        remove_bangs: false,
-      });
+        const output = minifyHtml.minify(input, {
+          ensure_spec_compliant_unquoted_attribute_values: true,
+          keep_html_and_head_opening_tags: true,
+          keep_closing_tags: true,
+          minify_js: true,
+          minify_css: true,
+          remove_bangs: false,
+        });
 
-      return output.toString();
-      }
-    }
-  }
-}
+        return output.toString();
+      },
+    },
+  };
+};
 
 export default defineConfig({
   root: path.resolve(__dirname, "src"),
