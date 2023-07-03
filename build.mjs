@@ -12,7 +12,7 @@ import esbuild from "esbuild";
 import hljs from "highlight.js";
 import { marked } from "marked";
 import { markedHighlight } from "marked-highlight";
-import sass from "sass";
+import * as sass from "sass";
 
 // eslint-disable-next-line no-shadow
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
