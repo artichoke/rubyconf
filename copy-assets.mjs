@@ -17,7 +17,6 @@ const assets = Object.freeze([
 ]);
 
 const build = async () => {
-  await fs.mkdir("src/public/2019", { recursive: true });
   await fs.mkdir("src/public/social", { recursive: true });
 
   await Promise.all(
