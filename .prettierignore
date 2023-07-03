@@ -6,11 +6,13 @@ dist/
 node_modules/
 target/
 
+!*.css
 !*.html
 !*.js
 !*.json
 !*.md
 !*.mjs
+!*.scss
 !*.yaml
 !*.yml
 
