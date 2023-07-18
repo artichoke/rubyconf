@@ -27,7 +27,7 @@ marked.use(
       const html = highlighted.value;
       return html;
     },
-  })
+  }),
 );
 
 const includeMarkdown = (source) => {
