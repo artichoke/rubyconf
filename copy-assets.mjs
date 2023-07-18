@@ -30,7 +30,7 @@ const build = async () => {
       } else {
         await fs.copyFile(asset, path.join("src", "public", file));
       }
-    })
+    }),
   );
 };
 
