@@ -8,27 +8,26 @@ import minifyHtml from "@minify-html/node";
 import { Eta } from "eta";
 import hljs from "highlight.js";
 import { marked } from "marked";
-import { markedHighlight } from "marked-highlight";
 
-marked.use({
-  headerIds: false,
-  mangle: false,
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  highlight: (code, language) => {
+    const highlighted = hljs.highlight(code, {
+      language,
+      ignoreIllegals: true,
+    });
+    const html = highlighted.value;
+    return html;
+  },
+  langPrefix: "hljs artichoke-highlight language-",
+  pedantic: false,
+  gfm: true,
+  breaks: false,
+  sanitize: false,
+  smartLists: true,
+  smartypants: false,
+  xhtml: false,
 });
-
-marked.use(
-  markedHighlight({
-    langPrefix: "hljs artichoke-highlight language-",
-    highlight(code, lang) {
-      const language = hljs.getLanguage(lang) ? lang : "plaintext";
-      const highlighted = hljs.highlight(code, {
-        language,
-        ignoreIllegals: true,
-      });
-      const html = highlighted.value;
-      return html;
-    },
-  }),
-);
 
 const includeMarkdown = (source) => {
   const filePath = path.resolve(__dirname, "src", source);
@@ -41,7 +40,7 @@ const etaPlugin = () => {
     name: "eta-html-transform",
     transformIndexHtml: {
       order: "pre",
-      transform(html) {
+      handler(html) {
         const eta = new Eta({ views: "src" });
         return eta.renderString(html, { includeMarkdown });
       },
@@ -55,7 +54,7 @@ const minifyHtmlPlugin = () => {
     apply: "build",
     transformIndexHtml: {
       order: "post",
-      transform(html) {
+      handler(html) {
         const input = Buffer.from(html);
 
         const output = minifyHtml.minify(input, {
@@ -87,7 +86,7 @@ export default defineConfig({
   },
   plugins: [etaPlugin(), minifyHtmlPlugin()],
   server: {
-    port: 4923,
+    port: 3000,
     hot: true,
   },
 });
