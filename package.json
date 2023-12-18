@@ -30,7 +30,7 @@
     "prettier": "^3.0.0",
     "rimraf": "^3.0.2",
     "sass": "^1.63.6",
-    "vite": "^4.3.9"
+    "vite": "^5.0.10"
   },
   "eslintConfig": {
     "env": {

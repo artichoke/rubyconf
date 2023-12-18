@@ -40,7 +40,7 @@ const etaPlugin = () => {
     name: "eta-html-transform",
     transformIndexHtml: {
       order: "pre",
-      transform(html) {
+      handler(html) {
         const eta = new Eta({ views: "src" });
         return eta.renderString(html, { includeMarkdown });
       },
@@ -54,7 +54,7 @@ const minifyHtmlPlugin = () => {
     apply: "build",
     transformIndexHtml: {
       order: "post",
-      transform(html) {
+      handler(html) {
         const input = Buffer.from(html);
 
         const output = minifyHtml.minify(input, {
@@ -86,7 +86,7 @@ export default defineConfig({
   },
   plugins: [etaPlugin(), minifyHtmlPlugin()],
   server: {
-    port: 4923,
+    port: 3000,
     hot: true,
   },
 });
