@@ -22,7 +22,7 @@ jobs:
       - name: Install Node.js toolchain
         uses: actions/setup-node@v4.0.1
         with:
-          node-version: 18
+          node-version: "lts/*"
 
       - name: Install toolchain
         run: npm ci
@@ -50,7 +50,7 @@ jobs:
       - name: Install Node.js toolchain
         uses: actions/setup-node@v4.0.1
         with:
-          node-version: 18
+          node-version: "lts/*"
 
       - name: Install toolchain
         run: npm ci
@@ -84,7 +84,7 @@ jobs:
       - name: Install Node.js toolchain
         uses: actions/setup-node@v4.0.1
         with:
-          node-version: 18
+          node-version: "lts/*"
 
       - name: Install toolchain
         run: npm ci
