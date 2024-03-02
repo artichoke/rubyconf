@@ -30,15 +30,3 @@ updates:
         update-types: ["version-update:semver-major"]
       - dependency-name: "rimraf"
         update-types: ["version-update:semver-major"]
-  - package-ecosystem: bundler
-    directory: "/"
-    schedule:
-      interval: monthly
-    groups:
-      bundler-deps:
-        patterns:
-          - "*"
-    assignees:
-      - lopopolo
-    labels:
-      - A-deps
