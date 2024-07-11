@@ -36,7 +36,7 @@
   },
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "vite build --emptyOutDir",
     "preview": "vite preview",
     "clean": "rimraf dist",
     "copy:assets": "rimraf \"src/public/!(*.txt|site.webmanifest)\" && node copy-assets.mjs",
