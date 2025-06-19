@@ -1,3 +1,15 @@
+# 📦 Project Status: Archived
+
+This repository hosted the slide deck for _Artichoke Is a Ruby Made With Rust_,
+presented at RubyConf 2019. No additional talks or updates are planned, and this
+repo is now archived for historical reference.
+
+The talk and slides remain accessible:
+
+- 🎤 Talk: [Building a Ruby: Artichoke is a Ruby Made with Rust
+  (YouTube)][2019-talk]
+- 🖥️ Slides: Deck on GitHub Pages at <https://artichoke.github.io/rubyconf/2019>
+
 # RubyConf
 
 [![GitHub Actions](https://github.com/artichoke/rubyconf/workflows/CI/badge.svg)](https://github.com/artichoke/rubyconf/actions)
