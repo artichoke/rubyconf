@@ -13,7 +13,6 @@ The talk and slides remain accessible:
 # RubyConf
 
 [![GitHub Actions](https://github.com/artichoke/rubyconf/workflows/CI/badge.svg)](https://github.com/artichoke/rubyconf/actions)
-[![Discord](https://img.shields.io/discord/607683947496734760)](https://discord.gg/QCe2tp2)
 [![Twitter](https://img.shields.io/twitter/follow/artichokeruby?label=Follow&style=social)](https://twitter.com/artichokeruby)
 
 [Artichoke] is a Ruby implementation written in Rust and Ruby.
